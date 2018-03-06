@@ -1,0 +1,52 @@
+.grader-menu {
+    background-color: #2b3d52;
+    height: 100%;
+    min-height: 100vh;
+    color: white;
+    cursor: pointer;
+    .menu-header {
+        background-color: #001c3b;
+        font-weight: 700;
+        font-size: 1.5rem;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+    }
+    .icon-menu {
+        width: 15px;
+        height: 15px;
+        margin: 4px;
+    } // .smenu-item {
+    //     padding: 5px 30px;
+    //     width: 100%;
+    //     display: flex;
+    //     background-color: white;
+    //     color: black;
+    //     border-bottom: 1px solid #cccccc;
+    //     border-right: 2px solid #2b3d52;
+    //     cursor: pointer;
+    //     &:hover {
+    //         background-color: #f0f0f0;
+    //     }
+    //     &.smenu-active {
+    //         background-color: #f0f0f0;
+    //     }
+    // }
+    .menu-item {
+        padding: 15px;
+        width: 100%;
+        display: flex;
+        font-weight: 600;
+        &:hover {
+            background-color: #2f8df8;
+        }
+    }
+    .menu-item.logout {
+        &:hover {
+            background-color: #afafaf;
+        }
+    }
+    .menu-item.menu-active {
+        background-color: #2f8df8;
+    }
+}

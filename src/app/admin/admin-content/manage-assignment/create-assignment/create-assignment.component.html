@@ -1,0 +1,57 @@
+<div class="create-assignment-container">
+  <div class="create-assignment-header">
+    Create Assignment
+  </div>
+  <div class="create-assignment-content row">
+    <div class="ca-form col-6">
+      <div class="label-ca-form">
+        <mat-icon>star</mat-icon>
+        Number of Assignment :
+      </div>
+      <input type="number" min="1" pattern="\d+">
+    </div>
+    <div class="ca-form col-6">
+      <div class="label-ca-form">
+        <mat-icon>assignment</mat-icon>
+        Assignment Title:
+      </div>
+      <input type="text">
+    </div>
+    <div class="ca-form col-6">
+      <div class="label-ca-form">
+        <mat-icon>list </mat-icon>
+        No of Question :
+      </div>
+      <input type="text">
+    </div>
+    <div class="ca-form col-6">
+      <div class="label-ca-form">
+        <mat-icon>list </mat-icon>
+        Select Databases
+      </div>
+      <select class="form-control">
+        <option>Select Databases</option>
+      </select>
+    </div>
+    <div class="ca-form col-6">
+      <div class="label-ca-form ">
+        <mat-icon [style.color]=" '#3f51b5' ">today </mat-icon>
+        Start Date :
+      </div>
+      <input type="text " [owlDateTimeTrigger]="dt5 " [owlDateTime]="dt5 ">
+      <owl-date-time [pickerMode]=" 'dialog' " #dt5></owl-date-time>
+    </div>
+    <div class="ca-form col-6">
+      <div class="label-ca-form">
+        <mat-icon [style.color]=" 'red' ">today </mat-icon>
+        Due Date :
+      </div>
+      <input type="text ">
+    </div>
+  </div>
+  <div class="ca-button">
+    <div class="create-assignment-button">
+      Create Assignment
+    </div>  
+  </div>
+</div>

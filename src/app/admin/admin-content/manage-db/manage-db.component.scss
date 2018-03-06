@@ -1,0 +1,24 @@
+.manage-databases-container {
+    .md-header-menu {
+        background-color: #FF8A65;
+        margin: 10px;
+        text-align: center;
+        font-size: 1.4rem;
+        .md-menu-item {
+            outline: none;
+            cursor: pointer;
+            padding: 10px;
+            color: white;
+            border: 2px solid white;
+            &:hover {
+                background-color: #FF5722;
+            }
+            &.md-menu-active {
+                background-color: #FF5722;
+            }
+        }
+    }
+    .md-content {
+        margin: 10px;
+    }
+}

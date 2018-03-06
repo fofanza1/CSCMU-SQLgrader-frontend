@@ -1,0 +1,16 @@
+<grader-navbar></grader-navbar>
+<div class="home-container">
+  <div class="home-menu-container">
+    <div class="home-menu-item header-light" routerLink="/home/assignment" routerLinkActive="active-menu-item">
+      Assignment
+    </div>
+    <div class="home-menu-item header-light" routerLink="/home/test" routerLinkActive="active-menu-item">
+      Practice
+    </div>
+  </div>
+  <div class="content-home">
+    <!-- <grader-assignment></grader-assignment> -->
+    <router-outlet></router-outlet>
+    <!-- <grader-parctice></grader-parctice> -->
+  </div>
+</div>

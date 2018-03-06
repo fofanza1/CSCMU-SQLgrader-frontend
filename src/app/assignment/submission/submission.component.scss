@@ -1,0 +1,86 @@
+.submission-navbar {
+    padding: 10px;
+    color: white;
+    border: 1px solid #434a52;
+    border-radius: 2px;
+    background: linear-gradient(to right, #3366cc 0%, #003366 100%);
+    mat-icon {
+        vertical-align: middle;
+        font-size: 21px;
+    }
+}
+
+.submission-container {
+    .submission-header {
+        text-align: center;
+        padding: 10px;
+        font-size: 2.4rem;
+        font-weight: 600;
+        .submission-subheader {
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+    }
+    .submission-download-file {
+        margin: 25px;
+        mat-icon {
+            vertical-align: middle;
+            font-size: 21px;
+        }
+        .submission-download-file-header {
+            padding: 5px;
+            margin-top: 13px;
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+        .button-download-file {
+            margin-top: 15px;
+            background-color: #2B3D52;
+            color: #CCCCCC;
+            padding: 7px;
+            width: 150px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+    .submission-send-file {
+        margin: 25px;
+        mat-icon {
+            vertical-align: middle;
+            font-size: 21px;
+        }
+        .custom-select {
+            width: 250px;
+            background-color: #2B3D52;
+            color: #CCCCCC;
+            margin: 10px 0px;
+        }
+        .submission-send-file-header {
+            padding: 5px;
+            font-size: 1.4rem;
+        }
+        .custom-file-label {
+            width: 500px;
+            background-color: #2B3D52;
+            color: #CCCCCC;
+            &::after {
+                font-weight: 600;
+            }
+        }
+        .button-send-file {
+            margin-top: 15px;
+            background-color: #2B3D52;
+            color: #CCCCCC;
+            padding: 10px;
+            width: 150px;
+            font-size: .9rem;
+            font-weight: 700;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+}

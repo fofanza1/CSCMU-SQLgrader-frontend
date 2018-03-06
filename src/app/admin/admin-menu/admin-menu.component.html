@@ -1,0 +1,13 @@
+<div class="grader-menu">
+  <div class="menu-header">
+    ADMIN
+  </div>
+  <div *ngFor="let menu of menus" [ngClass]="{'logout': menu.name === 'Logout'}">
+    <div class="menu-item" routerLink="{{menu.link}}" routerLinkActive="menu-active">
+      <img class="icon-menu" src="assets/icons/menu-admin-icon.png" *ngIf="menu.name !== 'Logout'">
+      <img class="icon-menu" src="assets/icons/lock.png" *ngIf="menu.name === 'Logout'"> {{menu.name}}
+    </div>
+    <!-- <div *ngFor="let smenu of menu['submenu']" class="smenu-item header-light">
+      {{smenu.sname}} </div>
+  </div> -->
+  </div>

@@ -1,0 +1,61 @@
+.assignment-list-container {
+    margin: 10px;
+    .assignment-list-search {
+        display: flex;
+        justify-content: center;
+        input {
+            margin-bottom: 20px;
+            font-size: 1.02rem;
+            padding-left: 10px;
+            width: 520px;
+        }
+        .alist-search-header {
+            mat-icon {
+                margin-right: 8px;
+                font-size: 1.5rem;
+                vertical-align: middle
+            }
+            background-color: #434a52;
+            width: 150px;
+            padding: 10px;
+            font-size: 1.2rem;
+            color: white;
+            display: flex;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+    }
+    .header-alist-container {
+        display: flex;
+        border-collapse: collapse;
+        justify-content: center;
+        .header {
+            background-color: #434a52;
+            padding: 10px;
+            display: flex;
+            color: white;
+            font-size: 1.1rem;
+            border-left: 0.4px solid white;
+            justify-content: center;
+        }
+    }
+    .alist-container {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        &:hover {
+            background-color: #eeeeee;
+        }
+        .item-list {
+            padding: 10px;
+            display: flex;
+            font-size: 1rem;
+            border-left: 0.4px solid #424242;
+            border-bottom: 0.4px solid #424242;
+            justify-content: center;
+        }
+        .boder-right {
+            border-right: 0.4px solid #424242;
+        }
+    }
+}

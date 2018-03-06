@@ -1,0 +1,24 @@
+.manage-assignment-container {
+    .ma-header-menu {
+        background-color: #EF9A9A;
+        margin: 10px;
+        text-align: center;
+        font-size: 1.4rem;
+        .ma-menu-item {
+            outline: none;
+            cursor: pointer;
+            padding: 10px;
+            color: white;
+            border: 2px solid white;
+            &:hover {
+                background-color: #F44336;
+            }
+            &.ma-menu-active {
+                background-color: #F44336;
+            }
+        }
+    }
+    .ma-content {
+        margin: 10px;
+    }
+}

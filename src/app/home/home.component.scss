@@ -1,0 +1,33 @@
+.home-container {
+    background-color: #434a52;
+    min-height: 100vh;
+    padding: 20px; // flex: 1 1 auto;
+    .home-menu-container {
+        display: flex;
+        justify-content: center;
+        margin: 10px 50px 0px 50px;
+        .home-menu-item {
+            width: 200px;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: 100;
+            background-color: #CFD8DC; // text-decoration: none;
+            outline: 0; // border: none;
+            color: white;
+            text-align: center;
+            cursor: pointer; // border: 1px solid #78909C;
+            &.active-menu-item {
+                background-color: white;
+                color: black;
+                cursor: default;
+                border: 0px;
+            }
+        }
+    }
+    .content-home {
+        padding: 20px;
+        background-color: white;
+        min-height: 50vh;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+}

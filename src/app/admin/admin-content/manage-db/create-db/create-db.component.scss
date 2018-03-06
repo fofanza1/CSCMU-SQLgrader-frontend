@@ -1,0 +1,72 @@
+.create-db-container {
+    margin-top: 10px;
+    .label-error {
+        color: red;
+        font-weight: 500;
+    }
+    .btn {
+        font-weight: 600;
+        padding: 15px;
+    }
+    .custom-file {
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+    .create-db-card {
+        border: 1px solid #cacdd1;
+        border-radius: 2px;
+        padding: 30px;
+        margin: 10px;
+        background-color: #E9EBEE;
+        .create-db-header {
+            display: flex;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .create-db-form {
+            padding-top: 20px;
+            width: 100%;
+        }
+    }
+    .create-db-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        color: white;
+        width: 100px;
+        font-weight: 600;
+        padding: 5px;
+        margin-left: 10px;
+        cursor: pointer;
+        &.submit-button {
+            background-color: #8BC34A;
+        }
+        &.cancel-button {
+            background-color: #F44336;
+        }
+        &.disabled-button {
+            background-color: #9E9E9E;
+        }
+    }
+    .create-db-message {
+        margin: 5px;
+        display: flex;
+        padding: 10px;
+        width: 500px;
+        color: white;
+        border-radius: 3px;
+        font-weight: 500;
+        font-size: 1.2rem;
+        &.success-message {
+            background-color: #8BC34A;
+            border: 1px solid #AED581;
+        }
+        &.error-message {
+            background-color: #F44336;
+            border: 1px solid #E57373;
+        }
+    }
+}

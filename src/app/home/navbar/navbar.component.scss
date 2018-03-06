@@ -1,0 +1,31 @@
+.grader-navbar-container {
+    background-color: #0D47A1;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-bottom: .5px solid rgba(255, 255, 255, 0.5);
+    mat-icon {
+        font-size: 1.4rem;
+        vertical-align: middle;
+    }
+    .left-navbar {
+        padding: 15px;
+    }
+    .right-navbar {
+        display: flex;
+        .time-navbar {
+            margin-right: 10px;
+            padding: 15px;
+        }
+        .username-navbar {
+            margin-right: 10px;
+            cursor: pointer;
+            padding: 15px;
+            &:hover {
+                background-color: #1A237E;
+            }
+        }
+    }
+}

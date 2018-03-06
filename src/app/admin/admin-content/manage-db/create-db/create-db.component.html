@@ -1,0 +1,66 @@
+<div class="create-db-container">
+  <div class="create-db-card">
+    <div class="create-db-header">
+      Create Database Assignment
+    </div>
+    <!-- <mat-divider></mat-divider> -->
+    <div class="alert alert-warning" role="alert">
+      <ul>
+        <li>
+          ห้ามใส่คำสั่ง
+          <kbd>CREATE DATABASE</kbd>
+          <kbd>DROP DATABASE</kbd>
+          <kbd>DROP TABLE</kbd>
+          <!-- <kbd>USE[DATABASE]</kbd> -->
+          ลงในไฟล์ดาต้าเบส
+        </li>
+      </ul>
+
+    </div>
+    <mat-divider></mat-divider>
+    <!-- <mat-form-field class="create-db-form" [floatLabel]="'always'">
+      <input matInput (ngModelChange)="something($event)" [(ngModel)]="dbNameInput" #ctrl="ngModel" placeholder="Database Name"
+        maxlength="30" required>
+      <mat-hint align="end">{{dbNameInput.length || 0}}/30 </mat-hint>
+    </mat-form-field> -->
+    <label *ngIf="errorInput" class="label-error"> {{errorMessageInput}} </label>
+    <div class="row">
+      <mat-form-field class="col-3 create-db-form">
+        <mat-select placeholder="Select Database" [(ngModel)]="dbmsValue" required>
+          <mat-option *ngFor="let db of DBMs" [value]="db.value">
+            {{ db.name }}
+          </mat-option>
+        </mat-select>
+        <!-- <mat-error *ngIf="!ctrl.valid"> DBMs is Required </mat-error> -->
+      </mat-form-field>
+      <div class="col-8  custom-file">
+        <input type="file" (change)="something2()" ng2FileSelect [uploader]="sqlFile" class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">{{ sqlFile.queue[0]? sqlFile.queue[0].file.name: "Choose file" }}</label>
+      </div>
+    </div>
+    <label *ngIf="errorFile" class="label-error"> {{errorMessageFile}} </label>
+    <div class="d-flex justify-content-center">
+      <div class="create-db-button disabled-button" *ngIf="dbmsValue === '' || dbNameInput === '' || errorFile || errorInput">
+        Upload File
+      </div>
+      <div *ngFor="let item of sqlFile.queue">
+        <div class="create-db-button submit-button " (click)="item.upload()" *ngIf="dbmsValue !== '' && dbNameInput !== '' && !errorFile && !errorInput">
+          Upload File
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="create-db-button submit-button ">
+      Submit
+    </div>
+    <div class="create-db-button cancel-button ">
+      Cancel
+    </div>
+  <div class="create-db-message success-message">
+    eiei
+  </div>
+  <div class="create-db-message error-message">
+      eiei
+    </div> -->
+  </div>
+</div>
