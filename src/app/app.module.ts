@@ -17,7 +17,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeComponent } from "./home/home.component";
 import { AssignmentModule } from "./assignment/assignment.module";
-import { ModalComponent } from './modal/modal.component';
+// import { ModalComponent } from './modal/modal.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -26,7 +26,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ModalComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AdminModule,

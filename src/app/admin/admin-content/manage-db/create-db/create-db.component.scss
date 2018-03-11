@@ -1,7 +1,18 @@
+.alert {
+    margin: 15px;
+}
+
 .create-db-container {
+    .alert {
+        margin: 10px;
+    }
     margin-top: 10px;
     .label-error {
         color: red;
+        font-weight: 500;
+    }
+    .label-warn {
+        color: #FF6F00;
         font-weight: 500;
     }
     .btn {

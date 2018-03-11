@@ -7,6 +7,7 @@ import { DbListComponent } from "./admin-content/manage-db/db-list/db-list.compo
 import { ManageAssignmentComponent } from "./admin-content/manage-assignment/manage-assignment.component";
 import { CreateAssignmentComponent } from "./admin-content/manage-assignment/create-assignment/create-assignment.component";
 import { ManageSubAssignmentComponent } from "./admin-content/manage-assignment/manage-sub-assignment/manage-sub-assignment.component";
+import { GenarateTestcaseComponent } from "./admin-content/manage-assignment/genarate-testcase/genarate-testcase.component";
 const routes: Routes = [
   {
     path: "admin",
@@ -42,6 +43,10 @@ const routes: Routes = [
           {
             path: "assignmentlist",
             component: ManageSubAssignmentComponent
+          },
+          {
+            path: "genaratetestcase",
+            component: GenarateTestcaseComponent
           },
           {
             path: "",

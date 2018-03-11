@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { MatTableDataSource } from "@angular/material/";
 import { DatabasesService } from "../../../../service/databases/databases.service";
 declare var $: any;
@@ -8,6 +8,7 @@ declare var $: any;
   styleUrls: ["./db-list.component.scss"]
 })
 export class DbListComponent implements OnInit {
+  // @Input() allDatabaseAssignment;
   allDataTable: Object;
   colName: string[];
   dataTableList: Object;
@@ -16,24 +17,26 @@ export class DbListComponent implements OnInit {
   displayedColumns = [];
   dataSource;
   dbName = "";
-  allDatabaseAssignment = [];
+  allDatabaseAssignment;
 
   constructor(private dbService: DatabasesService) {}
 
-  ngOnInit() {
-    this.getDatabaseAssignment();
+  async ngOnInit() {
+    this.allDatabaseAssignment = await this.dbService.getDatabasesAssignment();
+    console.log(this.allDatabaseAssignment);
+    // this.getDatabaseAssignment();
   }
 
-  getDatabaseAssignment() {
-    this.dbService.getDatabasesAssignment().subscribe(data => {
-      for (const x in data) {
-        if (data.hasOwnProperty(x)) {
-          this.allDatabaseAssignment.push(data[x].dbname);
-        }
-      }
-      console.log(this.allDatabaseAssignment);
-    });
-  }
+  // getDatabaseAssignment() {
+  //   this.dbService.getDatabasesAssignment().subscribe(data => {
+  //     for (const x in data) {
+  //       if (data.hasOwnProperty(x)) {
+  //         this.allDatabaseAssignment.push(data[x].dbname);
+  //       }
+  //     }
+  //     console.log(this.allDatabaseAssignment);
+  //   });
+  // }
 
   searchDbName(value) {
     if (this.allDatabaseAssignment.indexOf(value) > -1) {

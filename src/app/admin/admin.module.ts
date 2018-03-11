@@ -20,6 +20,9 @@ import { ManageAssignmentComponent } from "./admin-content/manage-assignment/man
 import { CreateAssignmentComponent } from "./admin-content/manage-assignment/create-assignment/create-assignment.component";
 import { ManageSubAssignmentComponent } from "./admin-content/manage-assignment/manage-sub-assignment/manage-sub-assignment.component";
 import { RoutingModule } from "./admin.routing";
+import { GenarateTestcaseComponent } from "./admin-content/manage-assignment/genarate-testcase/genarate-testcase.component";
+import { ModalComponent } from "../modal/modal.component";
+
 @NgModule({
   imports: [
     CommonModule,
@@ -43,7 +46,9 @@ import { RoutingModule } from "./admin.routing";
     DbListComponent,
     ManageAssignmentComponent,
     CreateAssignmentComponent,
-    ManageSubAssignmentComponent
+    ManageSubAssignmentComponent,
+    GenarateTestcaseComponent,
+    ModalComponent
   ],
   exports: [
     AdminComponent,
@@ -53,7 +58,9 @@ import { RoutingModule } from "./admin.routing";
     CreateDbComponent,
     DbListComponent,
     ManageAssignmentComponent,
-    CreateAssignmentComponent
+    CreateAssignmentComponent,
+    GenarateTestcaseComponent,
+    ModalComponent
   ]
 })
 export class AdminModule {}

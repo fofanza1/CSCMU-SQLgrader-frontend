@@ -1,3 +1,13 @@
+<div *ngIf="errorRes" class="alert alert-danger" role="alert">
+  Error -
+  <pre>{{errorRes?.errorResult | json}}</pre>
+  <!-- <br> -->
+  <!-- Message - {{ errorRes?.errorResult.mes }} -->
+</div>
+
+<div *ngIf="successRes" class="alert alert-success" role="alert">
+  Success - สร้างดาต้าเบสสำเร็จ ทำการ redirect ไปยังหน้าจัดการดาต้าเบสภายใน 5 วินาที
+</div>
 <div class="create-db-container">
   <div class="create-db-card">
     <div class="create-db-header">
@@ -23,7 +33,7 @@
         maxlength="30" required>
       <mat-hint align="end">{{dbNameInput.length || 0}}/30 </mat-hint>
     </mat-form-field> -->
-    <label *ngIf="errorInput" class="label-error"> {{errorMessageInput}} </label>
+    <!-- <label *ngIf="errorInput" class="label-error"> {{errorMessageInput}} </label> -->
     <div class="row">
       <mat-form-field class="col-3 create-db-form">
         <mat-select placeholder="Select Database" [(ngModel)]="dbmsValue" required>
@@ -39,12 +49,13 @@
       </div>
     </div>
     <label *ngIf="errorFile" class="label-error"> {{errorMessageFile}} </label>
+    <label *ngIf="messageWarn" class="label-warn"> {{messageWarn}} </label>
     <div class="d-flex justify-content-center">
-      <div class="create-db-button disabled-button" *ngIf="dbmsValue === '' || dbNameInput === '' || errorFile || errorInput">
+      <div class="create-db-button disabled-button" *ngIf="dbmsValue === '' ||  !sqlFile.queue[0]">
         Upload File
       </div>
       <div *ngFor="let item of sqlFile.queue">
-        <div class="create-db-button submit-button " (click)="item.upload()" *ngIf="dbmsValue !== '' && dbNameInput !== '' && !errorFile && !errorInput">
+        <div class="create-db-button submit-button " (click)="item.upload()" *ngIf="dbmsValue !== '' && sqlFile.queue[0] && !errorFile">
           Upload File
         </div>
       </div>
@@ -64,3 +75,4 @@
     </div> -->
   </div>
 </div>
+<grader-modal *ngIf="loading"></grader-modal>

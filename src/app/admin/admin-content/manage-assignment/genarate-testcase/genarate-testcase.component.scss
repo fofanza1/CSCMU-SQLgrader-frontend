@@ -1,0 +1,38 @@
+.genarate-testcase-container {
+    margin: 20px;
+    border: 1px solid #2b3d52;
+    padding: 30px;
+    .select-assignment-dropdown {
+        display: flex;
+        flex-start .custom-select {
+            height: auto;
+        }
+        .sad-header {
+            padding: 7px;
+            background-color: #2b3d52;
+            color: white;
+            width: 200px;
+            text-align: center;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+        }
+    }
+    .custom-file {
+        margin-top: 20px;
+    }
+    .g-button-form {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        .genarate-button {
+            border-radius: 2px;
+            padding: 10px;
+            margin: 20px;
+            background-color: #8BC34A;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+}
