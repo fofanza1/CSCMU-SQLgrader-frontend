@@ -16,13 +16,15 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "grader",
       "styles": [
+        "../node_modules/highlight.js/styles/tomorrow-night.css",
         "../node_modules/bootstrap/scss/bootstrap.scss",
         "styles.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.slim.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-        "../node_modules/popper.js/dist/umd/popper.min.js"
+        "../node_modules/popper.js/dist/umd/popper.min.js",
+        "../node_modules/highlight.js/lib/highlight.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

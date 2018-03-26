@@ -18,7 +18,12 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeComponent } from "./home/home.component";
 import { AssignmentModule } from "./assignment/assignment.module";
 // import { ModalComponent } from './modal/modal.component';
+import { HighlightModule, HighlightOptions } from "ngx-highlightjs";
 
+const options: HighlightOptions = {
+  theme: "tomorrow-night",
+  path: "../node_modules/highlight.js/lib/highlight.js"
+};
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "admin", component: AdminComponent },
@@ -37,6 +42,7 @@ const routes: Routes = [
     Ng2AutoCompleteModule,
     HttpClientModule,
     AssignmentModule,
+    HighlightModule.forRoot(options),
     // OwlDateTimeModule,
     // OwlNativeDateTimeModule,
     RouterModule.forRoot(routes)

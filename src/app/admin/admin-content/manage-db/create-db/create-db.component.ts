@@ -35,7 +35,7 @@ export class CreateDbComponent implements OnInit {
   errorFile = false;
   errorMessageFile = "";
   allDatabaseAssignment;
-  loading = true;
+  loading;
   successRes = false;
   DBMs = [
     { value: "psql", name: "Postgres" },
@@ -59,7 +59,7 @@ export class CreateDbComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.allDatabaseAssignment = await this.dbService.getDatabasesAssignment();
+    this.allDatabaseAssignment = await this.dbService.getDatabasesAssignmentName();
     this.loading = false;
     this.sqlFile.onAfterAddingFile = f => {
       if (this.sqlFile.queue.length > 1) {

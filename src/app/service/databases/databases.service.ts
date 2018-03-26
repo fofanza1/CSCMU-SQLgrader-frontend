@@ -17,12 +17,13 @@ export class DatabasesService {
     this.path = "/databases";
   }
 
-  getDatabasesAssignment() {
+  getDatabasesAssignmentName() {
     return new Promise((resolve, reject) => {
       this.http
         .get(this.URL_SERVICE + this.path + "/getdatabaseassignment")
         .subscribe(data => {
-          console.log(data);
+          this.allDatabaseAssignment = [];
+          // console.log(data);
           for (const x in data) {
             if (data.hasOwnProperty(x)) {
               this.allDatabaseAssignment.push(data[x].dbname);

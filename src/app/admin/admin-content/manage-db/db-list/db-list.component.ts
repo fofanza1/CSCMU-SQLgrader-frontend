@@ -22,7 +22,7 @@ export class DbListComponent implements OnInit {
   constructor(private dbService: DatabasesService) {}
 
   async ngOnInit() {
-    this.allDatabaseAssignment = await this.dbService.getDatabasesAssignment();
+    this.allDatabaseAssignment = await this.dbService.getDatabasesAssignmentName();
     console.log(this.allDatabaseAssignment);
     // this.getDatabaseAssignment();
   }

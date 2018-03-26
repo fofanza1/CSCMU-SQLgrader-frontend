@@ -15,6 +15,7 @@ import {
 } from "ng2-file-upload";
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from "ng-pick-datetime";
 import { DatabasesService } from "../service/databases/databases.service";
+import { AssignmentsService } from "../service/assignments/assignments.service";
 import { Ng2AutoCompleteModule } from "ng2-auto-complete";
 import { ManageAssignmentComponent } from "./admin-content/manage-assignment/manage-assignment.component";
 import { CreateAssignmentComponent } from "./admin-content/manage-assignment/create-assignment/create-assignment.component";
@@ -22,6 +23,9 @@ import { ManageSubAssignmentComponent } from "./admin-content/manage-assignment/
 import { RoutingModule } from "./admin.routing";
 import { GenarateTestcaseComponent } from "./admin-content/manage-assignment/genarate-testcase/genarate-testcase.component";
 import { ModalComponent } from "../modal/modal.component";
+import { HighlightModule } from "ngx-highlightjs";
+import { OnlyNumberDirective } from "../directive/only-number.directive";
+import { AssignmentFilterPipe } from "./pipe/assignment-filter.pipe";
 
 @NgModule({
   imports: [
@@ -33,9 +37,10 @@ import { ModalComponent } from "../modal/modal.component";
     OwlNativeDateTimeModule,
     // FileSelectDirective
     FileUploadModule,
+    HighlightModule,
     RoutingModule
   ],
-  providers: [DatabasesService],
+  providers: [DatabasesService, AssignmentsService],
 
   declarations: [
     AdminComponent,
@@ -48,7 +53,9 @@ import { ModalComponent } from "../modal/modal.component";
     CreateAssignmentComponent,
     ManageSubAssignmentComponent,
     GenarateTestcaseComponent,
-    ModalComponent
+    ModalComponent,
+    OnlyNumberDirective,
+    AssignmentFilterPipe
   ],
   exports: [
     AdminComponent,

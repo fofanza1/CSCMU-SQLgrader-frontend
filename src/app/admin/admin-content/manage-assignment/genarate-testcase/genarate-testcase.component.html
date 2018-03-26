@@ -1,24 +1,97 @@
-<div class="genarate-testcase-container">
-  <div class="select-assignment-dropdown">
-    <div class="sad-header">
-      Select Assignment
+<div class="question-list-container">
+  <div class="ql-header row">
+    <div class="ql-header-item col-2">
+      Question Number
     </div>
-    <select class="custom-select">
-      <option selected>Choose...</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </div>
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="customFile">
-    <label class="custom-file-label" for="customFile">Choose Testcase File</label>
-  </div>
-  <div class="g-button-form">
-    <div class="genarate-button">
-      Genarate Test Case
+    <div class="ql-header-item col-5">
+      Question Description
     </div>
-
+    <div class="ql-header-item col-3">
+      Solution Problem
+    </div>
+    <div class="ql-header-item col-2">
+      Score
+    </div>
   </div>
+  <div class="ql-content row" *ngFor="let data of dataQuestion" (click)="selectDataQuestion(data)">
+    <div class="ql-content-item col-2">
+      {{data.qnumber}}
+    </div>
+    <div class="ql-content-item col-5" [ngClass]="{'null-data': !data.qdescription}">
+      {{data.qdescription || 'NULL'}}
+    </div>
+    <div class="ql-content-item col-3" [ngClass]="{'null-data': !data.solution}">
+      {{data.solution || 'NULL'}}
+    </div>
+    <div class="ql-content-item end-ql-content col-2" [ngClass]="{'null-data': !data.score}">
+      {{data.score || '0'}}
+    </div>
+  </div>
+</div>
 
+<div class="manage-sub-assignment-container">
+  <div class="data-assignment">
+    <div class="manage-mode">
+      <div class="edit-mode">
+        <mat-icon>edit</mat-icon>
+        Edit Assignment
+      </div>
+      <div class="delete-mode">
+        <mat-icon>delete</mat-icon>
+        Delete Assignment
+      </div>
+    </div>
+    <div class="assignment-detail">
+      <div class="data-order">
+        <mat-icon>assignment </mat-icon>
+        Assignment# {{dataAssigment?.anumber}} - {{dataAssigment?.aname}}
+      </div>
+      <div class="data-order">
+        <mat-icon>list </mat-icon>
+        No of Question {{dataAssigment?.noofquestion}}
+      </div>
+      <div class="data-order">
+        <mat-icon [style.color]="'#3f51b5'">today </mat-icon>
+        Start Date : {{dataAssigment?.startdate | date:'medium'}} &emsp;
+        <mat-icon [style.color]="'red'">today </mat-icon>
+        Due Date : {{dataAssigment?.duedate | date:'medium'}}
+      </div>
+      <div class="data-order">
+        <mat-icon [style.color]="'#4CAF50'">equalizer </mat-icon>
+        Total Score: {{dataAssigment?.totalscore}}
+      </div>
+    </div>
+  </div>
+  <div class="manage-sub-assignment" *ngIf="checktSelectQuestion">
+    <!-- <div class="input-group mb-3">
+      <label class="number-assignment-label" for="inputGroupSelect01">Number of Question</label>
+      <select class="custom-select" id="inputGroupSelect01">
+        <option *ngFor="let int of noofquestionArr"> {{ int }}</option>
+      </select>
+    </div> -->
+    <mat-divider></mat-divider>
+    <div class="form-manage-assignment-group">
+      <label class="label">Question Description</label>
+      <textarea class="form-control" rows="3" max="200" [(ngModel)]="dataUpdate.qdescription"></textarea>
+    </div>
+    <div class="form-manage-assignment-group">
+      <label class="label">Solution Problem</label>
+      <textarea class="form-control solution-problem " rows="3" max="200" [(ngModel)]="dataUpdate.solution"></textarea>
+    </div>
+    <div class="form-manage-assignment-group">
+      <label class="label">Score</label>
+      <input type="number" min="1" pattern="\d+" class="form-control" [style.width]="'200px'" [(ngModel)]="dataUpdate.score">
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="button-submit" (click)="updateQuestion()">
+        Update Question
+      </div>
+    </div>
+    <div class="form-manage-assignment-group">
+      <label class="label">Answer</label>
+      <mat-divider></mat-divider>
+      <pre class="answer-code"><code>{{ dataUpdate.answer? (dataUpdate.answer | json) : 'No Answer' }}</code>
+      </pre>
+    </div>
+  </div>
 </div>

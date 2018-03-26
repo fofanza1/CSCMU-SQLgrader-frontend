@@ -45,7 +45,7 @@ const routes: Routes = [
             component: ManageSubAssignmentComponent
           },
           {
-            path: "genaratetestcase",
+            path: "assignment/:id",
             component: GenarateTestcaseComponent
           },
           {

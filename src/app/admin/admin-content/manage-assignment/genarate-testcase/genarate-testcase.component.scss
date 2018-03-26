@@ -1,38 +1,117 @@
-.genarate-testcase-container {
-    margin: 20px;
-    border: 1px solid #2b3d52;
-    padding: 30px;
-    .select-assignment-dropdown {
-        display: flex;
-        flex-start .custom-select {
-            height: auto;
-        }
-        .sad-header {
-            padding: 7px;
-            background-color: #2b3d52;
-            color: white;
-            width: 200px;
-            text-align: center;
-            border-top-left-radius: 2px;
-            border-bottom-left-radius: 2px;
-        }
-    }
-    .custom-file {
-        margin-top: 20px;
-    }
-    .g-button-form {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        .genarate-button {
-            border-radius: 2px;
+.question-list-container {
+    margin: 25px;
+    .ql-header {
+        .ql-header-item {
+            background-color: #4caf50;
             padding: 10px;
-            margin: 20px;
-            background-color: #8BC34A;
-            font-size: 1.2rem;
-            color: white;
             font-weight: 600;
+            color: white;
+            text-align: center;
+            border-right: 1px solid white;
+            font-size: 1.1rem;
+        }
+    }
+    .ql-content {
+        .ql-content-item {
+            padding: 10px;
+            text-align: center;
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+            text-overflow: ellipsis;
+            font-size: 1.1rem;
+            overflow: hidden;
+            &.end-ql-content {
+                border-right: 1px solid black;
+            }
+            &.null-data {
+                color: #F44336;
+                font-weight: 600;
+            }
+        }
+        &:hover {
+            cursor: pointer;
+            background-color: #E8F5E9;
+        }
+    }
+}
+
+.manage-sub-assignment-container {
+    margin: 20px;
+    mat-icon {
+        vertical-align: middle;
+        font-size: 23px; // padding-right: 5px;
+    }
+    .manage-sub-assignment {
+        padding: 15px;
+        .number-assignment-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            background-color: #3f51b5;
+            color: white;
+            padding: 6px;
+            border-radius: 2px 0px 0px 2px;
+        }
+    }
+    .manage-mode {
+        display: flex;
+        justify-content: flex-end;
+        .edit-mode {
+            background-color: #3f51b5;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 3px;
+            color: white;
             cursor: pointer;
         }
+        .delete-mode {
+            background-color: #f44336;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+        }
+    }
+    .data-assignment {
+        border: 2px solid #3f51b5;
+        font-weight: 600;
+        font-size: 1.2rem;
+        padding: 15px;
+        .input-edit-mode {
+            padding: 2px;
+            border-radius: 2px;
+            font-size: 1.2rem; // font-weight: 600;
+            margin-bottom: 15px;
+        }
+    }
+    .form-manage-assignment-group {
+        margin: 5px;
+        outline: none;
+        border: 10px;
+        .label {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .answer-code {
+            // background-color: #3f51b5;
+            margin: 10px;
+            padding: 20px;
+        }
+        .form-control {
+            border-radius: 2px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+    }
+    .button-submit {
+        width: 200px;
+        text-align: center;
+        padding: 15px;
+        font-weight: 600;
+        font-size: 1.2rem;
+        background-color: #3f51b5;
+        color: white;
+        border-radius: 4px;
     }
 }
