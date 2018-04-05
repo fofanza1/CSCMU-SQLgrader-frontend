@@ -1,0 +1,25 @@
+.course-list-item {
+    margin: 0px 20px;
+    .cl-item {
+        padding: 15px;
+        font-size: 1.2rem;
+        text-align: center;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+        &.end {
+            border-right: 1px solid black;
+        }
+        .cl-button {
+            padding: 7px;
+            color: white;
+            border-radius: 2px;
+            font-weight: 600;
+            &.edit {
+                background-color: #3F51B5;
+            }
+            &.delete {
+                background-color: #F44336;
+            }
+        }
+    }
+}

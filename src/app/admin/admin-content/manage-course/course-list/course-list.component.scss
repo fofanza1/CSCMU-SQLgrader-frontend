@@ -1,0 +1,20 @@
+.course-list-container {
+  margin: 20px;
+  .course-list-header {
+    margin: 20px 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  .course-list-item {
+    margin: 0px 20px;
+    .cl-header {
+      background-color: #311b92;
+      padding: 15px;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: center;
+      border-right: 1px solid white;
+    }
+  }
+}

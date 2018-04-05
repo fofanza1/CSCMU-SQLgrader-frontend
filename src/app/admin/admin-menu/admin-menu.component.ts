@@ -8,8 +8,8 @@ import { Component, OnInit } from "@angular/core";
 export class AdminMenuComponent implements OnInit {
   menus = [
     {
-      name: "Manage Student",
-      link: "managestudent",
+      name: "Manage course",
+      link: "managecourse",
       submenu: [
         {
           sname: "e"

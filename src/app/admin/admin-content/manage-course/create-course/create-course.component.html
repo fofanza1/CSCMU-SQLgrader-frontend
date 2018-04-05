@@ -1,0 +1,42 @@
+<div class="create-course-container">
+  <div class="cc-header">
+    Create Course
+  </div>
+  <div class="cc-input-row">
+    <div class="cc-input">
+      <div class="cc-input-label">
+        Course Id:
+      </div>
+      <input [style.width]="'100%'">
+    </div>
+
+    <div class="cc-input">
+      <div class="cc-input-label">
+        Course Name:
+      </div>
+      <input [style.width]="'100%'">
+    </div>
+  </div>
+  <div class="cc-input-row">
+    <div class="cc-input">
+      <div class="cc-input-label">
+        Year:
+      </div>
+      <input [style.width]="'100%'">
+    </div>
+    <div class="cc-input">
+      <mat-form-field [style.width]="'100%'">
+        <mat-select placeholder="Select Term">
+          <mat-option *ngFor="let term of terms" [value]="term.value">
+            {{ term.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="cc-submit">
+    <div class="cc-button">
+      Submit
+    </div>
+  </div>
+</div>

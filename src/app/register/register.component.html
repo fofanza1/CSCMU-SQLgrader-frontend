@@ -1,0 +1,53 @@
+<div class="register-container">
+  <div class="register-card">
+    <div class="r-header header-light">
+      Register
+    </div>
+    <div class="r-content row">
+      <div class="r-item col-6">
+        <div class="r-label-item">
+          Username
+        </div>
+        <input>
+      </div>
+      <div class="r-item col-6">
+        <div class="r-label-item">
+          Full Name
+        </div>
+        <input>
+      </div>
+      <div class="r-item col-6">
+        <div class="r-label-item">
+          Password
+        </div>
+        <input type="password">
+      </div>
+      <div class="r-item col-6">
+        <div class="r-label-item">
+          Password
+        </div>
+        <input type="password">
+      </div>
+      <div class="r-item col-6">
+        <div class="r-label-item">
+          Student Code
+        </div>
+        <input>
+      </div>
+      <div class="r-item col-6">
+        <mat-form-field [style.width]="'100%'">
+          <mat-select placeholder="Select Subject and term" [style.width]="'100%'">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="r-submit">
+      <div class="r-button-submit">
+        Register
+      </div>
+    </div>
+  </div>
+</div>

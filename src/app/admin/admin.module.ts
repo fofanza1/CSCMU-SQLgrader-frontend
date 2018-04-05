@@ -26,6 +26,10 @@ import { ModalComponent } from "../modal/modal.component";
 import { HighlightModule } from "ngx-highlightjs";
 import { OnlyNumberDirective } from "../directive/only-number.directive";
 import { AssignmentFilterPipe } from "./pipe/assignment-filter.pipe";
+import { ManageCourseComponent } from './admin-content/manage-course/manage-course.component';
+import { CreateCourseComponent } from './admin-content/manage-course/create-course/create-course.component';
+import { CourseListComponent } from './admin-content/manage-course/course-list/course-list.component';
+import { CourseItemListComponent } from './admin-content/manage-course/course-list/course-item-list/course-item-list.component';
 
 @NgModule({
   imports: [
@@ -55,7 +59,11 @@ import { AssignmentFilterPipe } from "./pipe/assignment-filter.pipe";
     GenarateTestcaseComponent,
     ModalComponent,
     OnlyNumberDirective,
-    AssignmentFilterPipe
+    AssignmentFilterPipe,
+    ManageCourseComponent,
+    CreateCourseComponent,
+    CourseListComponent,
+    CourseItemListComponent
   ],
   exports: [
     AdminComponent,
