@@ -11,6 +11,7 @@ import { GenarateTestcaseComponent } from "./admin-content/manage-assignment/gen
 import { ManageCourseComponent } from "./admin-content/manage-course/manage-course.component";
 import { CreateCourseComponent } from "./admin-content/manage-course/create-course/create-course.component";
 import { CourseListComponent } from "./admin-content/manage-course/course-list/course-list.component";
+import { ScoreComponent } from "./admin-content/score/score.component";
 
 const routes: Routes = [
   {
@@ -49,7 +50,7 @@ const routes: Routes = [
             component: ManageSubAssignmentComponent
           },
           {
-            path: "assignment/:id",
+            path: "assignmentlist/:id",
             component: GenarateTestcaseComponent
           },
           {
@@ -77,6 +78,10 @@ const routes: Routes = [
             pathMatch: "full"
           }
         ]
+      },
+      {
+        path: "score",
+        component: ScoreComponent
       }
     ]
   }

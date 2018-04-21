@@ -1,0 +1,25 @@
+.view-scores-container {
+    margin: 20px;
+    overflow-x: scroll;
+    .vs-header {
+        width: 100%;
+        .vs-header-item {
+            display: flex;
+            justify-content: center;
+            border-right: 2px solid white;
+            padding: 10px; // background-color: #3f51b5;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-top: 1px solid #CCCCCC;
+        }
+        .assignment-number {
+            display: flex;
+            clear: both; // text-align: center;
+            // white-space: nowrap;
+            .assignment-number-item {
+                font-weight: 600;
+                padding: 10 px;
+            }
+        }
+    }
+}

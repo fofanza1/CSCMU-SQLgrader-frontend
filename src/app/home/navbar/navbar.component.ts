@@ -6,6 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
+  name: string;
   date: Date = new Date();
   constructor() {
     setInterval(() => {
@@ -13,5 +14,7 @@ export class NavbarComponent implements OnInit {
     }, 1);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.name = localStorage.getItem("name");
+  }
 }

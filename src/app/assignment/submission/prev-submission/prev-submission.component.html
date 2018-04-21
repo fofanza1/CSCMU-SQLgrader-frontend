@@ -24,45 +24,22 @@
         Download file
       </div>
     </div>
-    <div class="psub-table-content row">
+    <div class="psub-table-content row" *ngFor="let submit of data_">
       <div class="psub-content-item col-2">
-        99999
+        {{submit.submitid}}
       </div>
       <div class="psub-content-item col-2">
-        2018-02-22 22:07:35
+        {{submit.date}}
       </div>
       <div class="psub-content-item fontw-600 col-2">
         Evaluated
-        <mat-icon matTooltip="Click to show detail" [matTooltipPosition]="'above'">add_box</mat-icon>
+        <!-- <mat-icon matTooltip="Click to show detail" [matTooltipPosition]="'above'">add_box</mat-icon> -->
       </div>
       <div class="psub-content-item fontw-600 col-2">
-        300/300
+        {{submit.submitscore}} / {{totalscore}}
       </div>
       <div class="psub-content-item col-2">
-        0.0002 s
-      </div>
-      <div class="psub-content-item right-border  col-2">
-        <div class="button-download">
-          Download
-        </div>
-      </div>
-    </div>
-    <div class="psub-table-content row">
-      <div class="psub-content-item col-2">
-        99999
-      </div>
-      <div class="psub-content-item col-2">
-        2018-02-22 22:07:35
-      </div>
-      <div class="psub-content-item fontw-600 col-2">
-        Not Correct
-        <mat-icon matTooltip="Click to show detail" [matTooltipPosition]="'above'">add_box</mat-icon>
-      </div>
-      <div class="psub-content-item fontw-600 col-2">
-        0/300
-      </div>
-      <div class="psub-content-item col-2">
-        2.3 s
+        {{submit.submittime / 1000}} s
       </div>
       <div class="psub-content-item right-border  col-2">
         <div class="button-download">

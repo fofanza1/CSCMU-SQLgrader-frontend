@@ -62,6 +62,9 @@
       </div>
     </div>
   </div>
+  <div class="error-update" *ngIf="errorUpdate">
+    <pre>{{errorMsg | json}}</pre>
+  </div>
   <div class="manage-sub-assignment" *ngIf="checktSelectQuestion">
     <!-- <div class="input-group mb-3">
       <label class="number-assignment-label" for="inputGroupSelect01">Number of Question</label>
@@ -76,6 +79,16 @@
     </div>
     <div class="form-manage-assignment-group">
       <label class="label">Solution Problem</label>
+      <label class="warning label">MySQL - insert, update ต้อง select ค่าออกมาด้วย | delete ต้องเพิ่ม returning เช่น DELETE FROM t RETURNING *;
+      </label>
+      <!-- <br>
+      <mat-form-field class="col-3 create-db-form">
+        <mat-select placeholder="Select Database" [(ngModel)]="dbmsValue" required>
+          <mat-option *ngFor="let db of DBMs" [value]="db.value">
+            {{ db.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
       <textarea class="form-control solution-problem " rows="3" max="200" [(ngModel)]="dataUpdate.solution"></textarea>
     </div>
     <div class="form-manage-assignment-group">
@@ -83,15 +96,30 @@
       <input type="number" min="1" pattern="\d+" class="form-control" [style.width]="'200px'" [(ngModel)]="dataUpdate.score">
     </div>
     <div class="d-flex justify-content-center">
-      <div class="button-submit" (click)="updateQuestion()">
+      <div class="not-sol button-submit" *ngIf="!dataUpdate.solution">
+        Update Question
+      </div>
+      <div class="button-submit" (click)="updateQuestion()" *ngIf="dataUpdate.solution">
         Update Question
       </div>
     </div>
     <div class="form-manage-assignment-group">
       <label class="label">Answer</label>
       <mat-divider></mat-divider>
-      <pre class="answer-code"><code>{{ dataUpdate.answer? (dataUpdate.answer | json) : 'No Answer' }}</code>
-      </pre>
+      <div class="table-responsive" *ngIf="dataUpdate.answer.length > 0">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th *ngFor="let key of keyAnswer">{{key}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let answer of dataUpdate.answer">
+              <td *ngFor="let key of keyAnswer">{{answer[key]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

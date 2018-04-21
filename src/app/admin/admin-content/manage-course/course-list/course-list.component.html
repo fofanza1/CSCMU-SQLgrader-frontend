@@ -1,3 +1,7 @@
+<div class="no-course-select-msg" *ngIf="showMsg">
+  กรุณาเลือกคอร์สวิชาเรียน หรือถ้าไม่มีคอร์สให้เลือกกรุณาสร้างคอร์สใหม่
+  <br> (เลือกคอร์สโดยการคลิกที่เครื่องหมายถูก)
+</div>
 <div class="course-list-container">
   <div class="course-list-header">
     Course List
@@ -12,16 +16,17 @@
     <div class="cl-header col-1">
       Term
     </div>
+    <div class="cl-header col-2" matTooltip="Academic Year" [matTooltipPosition]="'above'">
+      Academic Year
+    </div>
     <div class="cl-header col-2">
-      Year
+      status
     </div>
     <div class="cl-header col-2">
       Edit
     </div>
-    <div class="cl-header col-2">
-      Delete
-    </div>
+
   </div>
-  <grader-course-item-list></grader-course-item-list>
-  <grader-course-item-list></grader-course-item-list>
+  <grader-course-item-list *ngFor="let data of allDataCourse" [data]="data"></grader-course-item-list>
+  <!-- <grader-course-item-list></grader-course-item-list> -->
 </div>

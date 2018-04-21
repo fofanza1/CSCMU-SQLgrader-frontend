@@ -1,3 +1,11 @@
+<div class="msg-container successful" *ngIf="showSuccessful">
+  Create Course Successful
+</div>
+
+<div class="msg-container error" *ngIf="err">
+  Create Course Failed
+</div>
+
 <div class="create-course-container">
   <div class="cc-header">
     Create Course
@@ -5,28 +13,33 @@
   <div class="cc-input-row">
     <div class="cc-input">
       <div class="cc-input-label">
-        Course Id:
+        Course Code:
       </div>
-      <input [style.width]="'100%'">
+      <div class="cc-warning-label">
+        *ต้องกรอกครบ 6 ตัว
+      </div>
+      <input type="text" [style.width]="'100%'" maxlength="6" appOnlyNumber [(ngModel)]="ccode">
     </div>
-
     <div class="cc-input">
       <div class="cc-input-label">
-        Course Name:
+        Academic Year:
       </div>
-      <input [style.width]="'100%'">
+      <div class="cc-warning-label">
+        *ต้องกรอกครบ 4 ตัว
+      </div>
+      <input type="text" [style.width]="'100%'" maxlength="4" [(ngModel)]="year" appOnlyNumber>
     </div>
   </div>
   <div class="cc-input-row">
     <div class="cc-input">
       <div class="cc-input-label">
-        Year:
+        Course Name:
       </div>
-      <input [style.width]="'100%'">
+      <input type="text" [style.width]="'100%'" maxlength="50" [(ngModel)]="cname">
     </div>
     <div class="cc-input">
       <mat-form-field [style.width]="'100%'">
-        <mat-select placeholder="Select Term">
+        <mat-select placeholder="Select Term" [(ngModel)]="termData">
           <mat-option *ngFor="let term of terms" [value]="term.value">
             {{ term.viewValue }}
           </mat-option>
@@ -35,8 +48,12 @@
     </div>
   </div>
   <div class="cc-submit">
-    <div class="cc-button">
-      Submit
+    <div class="cc-button disabled" *ngIf="+(ccode?.length) !== 6 || +(year?.length) !== 4 || !cname || !termData">
+      Create Course
+    </div>
+    <div class="cc-button" (click)="createCourse()" *ngIf="+(ccode?.length)=== 6 && +(year?.length) === 4 && cname && termData">
+      Create Course
     </div>
   </div>
-</div>
+
+  <grader-modal *ngIf="loading"></grader-modal>

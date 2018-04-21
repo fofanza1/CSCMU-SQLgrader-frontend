@@ -41,6 +41,10 @@ export class AdminMenuComponent implements OnInit {
       ]
     },
     {
+      name: "Score",
+      link: "score"
+    },
+    {
       name: "Logout",
       link: "/logout"
     }

@@ -27,8 +27,11 @@ const options: HighlightOptions = {
   path: "../node_modules/highlight.js/lib/highlight.js"
 };
 const routes: Routes = [
-  { path: "login", component: LoginComponent },
-  { path: "register", component: RegisterComponent },
+  { path: "login", loadChildren: "./login/login.module#LoginModule" },
+  {
+    path: "register",
+    loadChildren: "./register/register.module#RegisterModule"
+  },
   { path: "admin", component: AdminComponent },
   { path: "home", loadChildren: "./home/home.module#HomeModule" }
 ];

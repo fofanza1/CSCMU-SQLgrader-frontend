@@ -24,7 +24,7 @@ export class ManageSubAssignmentComponent implements OnInit {
 
   goToQuestion(assignmentNumber) {
     this.router.navigate([
-      "/admin/manageassignment/assignment/" + assignmentNumber
+      "/admin/manageassignment/assignmentlist/" + assignmentNumber
     ]);
   }
 }

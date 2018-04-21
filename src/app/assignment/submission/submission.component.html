@@ -7,23 +7,32 @@
 
 <div class="submission-container">
   <div class="submission-header">
-    Assignment# 1
+    Assignment# {{assignmentNumber$}}
     <div class="submission-subheader header-light">
-      Company EIEI
+      {{dataAssignement$.aname}}
     </div>
   </div>
   <mat-divider></mat-divider>
-  <grader-assignment-submission-detail></grader-assignment-submission-detail>
+  <grader-assignment-submission-detail [data]="dataAssignement$"></grader-assignment-submission-detail>
+  <!-- <mat-divider></mat-divider> -->
+  <!-- <mat-divider></mat-divider>
+  <grader-question-list></grader-question-list> -->
   <mat-divider></mat-divider>
-  <mat-divider></mat-divider>
-  <grader-question-list></grader-question-list>
-  <mat-divider></mat-divider>
-  <div class="submission-download-file d-flex">
-    <div class="submission-download-file-header header-light">
+  <div class="submission-download-file d-flex row">
+    <div class="submission-download-file-header header-light col-3">
+      <mat-icon>assignment</mat-icon>
+      Download Assignment
+    </div>
+    <div class="button-download-file" (click)="downloadAssignmentFile()">
+      Download
+    </div>
+  </div>
+  <div class="submission-download-file d-flex row">
+    <div class="submission-download-file-header header-light col-3">
       <mat-icon>insert_drive_file</mat-icon>
       Download File Scripts
     </div>
-    <div class="button-download-file">
+    <div class="button-download-file" (click)="downloadScriptFile()">
       Download
     </div>
   </div>
@@ -49,5 +58,5 @@
     </div>
   </div>
   <mat-divider></mat-divider>
-  <grader-prev-submission></grader-prev-submission>
+  <grader-prev-submission [data]="dataSubmission$"></grader-prev-submission>
 </div>

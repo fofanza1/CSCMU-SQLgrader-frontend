@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { environment } from "../../../environments/environment";
+import { RequestOptions, ResponseContentType } from "@angular/http";
 
 @Injectable()
 export class AssignmentsService {
@@ -15,22 +16,81 @@ export class AssignmentsService {
     this.path = "/assignments";
   }
   getAssignemntsDetail() {
-    return this.http.get(this.URL_SERVICE + this.path + "/dataassignment");
+    return this.http.get(
+      this.URL_SERVICE +
+        this.path +
+        "/dataassignment/" +
+        localStorage.getItem("adminCourseId")
+    );
   }
 
-  getAssignemntsDetailById(id) {
-    return this.http.get(this.URL_SERVICE + this.path + "/getassignment/" + id);
+  getAssignemntsDetailById(assignmentsNumber) {
+    return this.http.get(
+      this.URL_SERVICE +
+        this.path +
+        "/getassignment/" +
+        localStorage.getItem("adminCourseId") +
+        "/" +
+        assignmentsNumber
+    );
   }
 
-  getQuestionByAssignemntId(id) {
-    return this.http.get(this.URL_SERVICE + this.path + "/getquestion/" + id);
+  getAssignemntsDetailByNumberInUser(cid, assignmentsNumber) {
+    return this.http.get(
+      this.URL_SERVICE +
+        this.path +
+        "/getassignment/" +
+        cid +
+        "/" +
+        assignmentsNumber
+    );
   }
 
-  updateQuestion(cid, anumber, qnumber, qid, qdescription, qsolution, score) {
+  getQuestionByAssignemntId(cid, assignmentsNumber) {
+    return this.http.get(
+      this.URL_SERVICE +
+        this.path +
+        "/getquestion/" +
+        localStorage.getItem("adminCourseId") +
+        "/" +
+        assignmentsNumber
+    );
+  }
+
+  downloadassignment(aid) {
+    return this.http.get(
+      this.URL_SERVICE + this.path + "/downloadassignment/" + aid,
+      {
+        responseType: "blob"
+      }
+    );
+  }
+
+  downloadScriptAssignment(aid) {
+    return this.http.get(
+      this.URL_SERVICE + this.path + "/downloadscript/" + aid,
+      {
+        responseType: "blob"
+      }
+    );
+  }
+
+  updateQuestion(
+    dbname,
+    noofquestion,
+    aid,
+    qnumber,
+    qid,
+    qdescription,
+    qsolution,
+    score
+  ) {
     return this.http.post(this.URL_SERVICE + this.path + "/updatequestion", {
-      cid: cid,
+      dbname: dbname,
+      noofquestion: noofquestion,
+      cid: localStorage.getItem("adminCourseId"),
       qnumber: qnumber,
-      anumber: anumber,
+      aid: aid,
       qid: qid,
       qdescription: qdescription,
       qsolution: qsolution,
@@ -40,6 +100,7 @@ export class AssignmentsService {
 
   createAssignemnt(anumber, aname, noofquestion, startdate, duedate, dbid) {
     return this.http.post(this.URL_SERVICE + this.path + "/createassignment", {
+      cid: localStorage.getItem("adminCourseId"),
       anumber: anumber,
       aname: aname,
       noofquestion: noofquestion,

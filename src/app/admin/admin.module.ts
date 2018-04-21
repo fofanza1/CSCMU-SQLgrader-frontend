@@ -15,7 +15,9 @@ import {
 } from "ng2-file-upload";
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from "ng-pick-datetime";
 import { DatabasesService } from "../service/databases/databases.service";
+import { CoursesService } from "../service/courses/courses.service";
 import { AssignmentsService } from "../service/assignments/assignments.service";
+CoursesService;
 import { Ng2AutoCompleteModule } from "ng2-auto-complete";
 import { ManageAssignmentComponent } from "./admin-content/manage-assignment/manage-assignment.component";
 import { CreateAssignmentComponent } from "./admin-content/manage-assignment/create-assignment/create-assignment.component";
@@ -26,10 +28,12 @@ import { ModalComponent } from "../modal/modal.component";
 import { HighlightModule } from "ngx-highlightjs";
 import { OnlyNumberDirective } from "../directive/only-number.directive";
 import { AssignmentFilterPipe } from "./pipe/assignment-filter.pipe";
-import { ManageCourseComponent } from './admin-content/manage-course/manage-course.component';
-import { CreateCourseComponent } from './admin-content/manage-course/create-course/create-course.component';
-import { CourseListComponent } from './admin-content/manage-course/course-list/course-list.component';
-import { CourseItemListComponent } from './admin-content/manage-course/course-list/course-item-list/course-item-list.component';
+import { ManageCourseComponent } from "./admin-content/manage-course/manage-course.component";
+import { CreateCourseComponent } from "./admin-content/manage-course/create-course/create-course.component";
+import { CourseListComponent } from "./admin-content/manage-course/course-list/course-list.component";
+import { CourseItemListComponent } from "./admin-content/manage-course/course-list/course-item-list/course-item-list.component";
+import { ScoreComponent } from "./admin-content/score/score.component";
+import { DirectiveModule } from "../directive/directive.module";
 
 @NgModule({
   imports: [
@@ -42,9 +46,10 @@ import { CourseItemListComponent } from './admin-content/manage-course/course-li
     // FileSelectDirective
     FileUploadModule,
     HighlightModule,
-    RoutingModule
+    RoutingModule,
+    DirectiveModule
   ],
-  providers: [DatabasesService, AssignmentsService],
+  providers: [DatabasesService, AssignmentsService, CoursesService],
 
   declarations: [
     AdminComponent,
@@ -58,12 +63,12 @@ import { CourseItemListComponent } from './admin-content/manage-course/course-li
     ManageSubAssignmentComponent,
     GenarateTestcaseComponent,
     ModalComponent,
-    OnlyNumberDirective,
     AssignmentFilterPipe,
     ManageCourseComponent,
     CreateCourseComponent,
     CourseListComponent,
-    CourseItemListComponent
+    CourseItemListComponent,
+    ScoreComponent
   ],
   exports: [
     AdminComponent,

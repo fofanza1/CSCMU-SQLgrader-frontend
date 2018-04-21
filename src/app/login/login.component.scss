@@ -17,6 +17,13 @@
                 font-weight: 300;
                 padding: 10px;
             }
+            .login-error {
+     display: flex;
+     justify-content: center;
+     background-color: #F44336;
+     padding: 15px;
+     color: white;
+ }
             .login-button {
                 color: white;
                 font-weight: 600;
