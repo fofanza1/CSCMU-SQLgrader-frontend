@@ -4,48 +4,44 @@
     Previous Submissions
   </div>
   <div class="psubmission-table">
-    <div class="psub-table-header row">
-      <div class="psub-header-item col-2">
-        Submission ID
+    <div class="psub-table-header row justify-content-md-center">
+      <div class="psub-header-item col-3">
+        Submission No.
       </div>
       <div class="psub-header-item col-2">
-        Date & Time
-      </div>
-      <div class="psub-header-item col-2">
-        Status & Detail
+        No.
       </div>
       <div class="psub-header-item col-2">
         Score
       </div>
       <div class="psub-header-item col-2">
-        Time Exec
+        Detail
       </div>
-      <div class="psub-header-item col-2">
-        Download file
+      <div class="psub-header-item col-3">
+        Download
       </div>
     </div>
-    <div class="psub-table-content row" *ngFor="let submit of data_">
-      <div class="psub-content-item col-2">
-        {{submit.submitid}}
-      </div>
-      <div class="psub-content-item col-2">
-        {{submit.date}}
+    <div class="psub-table-content row justify-content-md-center" *ngFor="let submit of data_; let i = index">
+      <div class="psub-content-item fontw-600 col-3">
+        {{submit.scoreid}}
       </div>
       <div class="psub-content-item fontw-600 col-2">
-        Evaluated
-        <!-- <mat-icon matTooltip="Click to show detail" [matTooltipPosition]="'above'">add_box</mat-icon> -->
+        {{allnosubmit - (i)}}
       </div>
       <div class="psub-content-item fontw-600 col-2">
-        {{submit.submitscore}} / {{totalscore}}
+        {{submit.score}}
       </div>
-      <div class="psub-content-item col-2">
-        {{submit.submittime / 1000}} s
+      <div class="psub-content-item fontw-600 col-2">
+        <div class="button-download col-10 justify-content-md-center" (click)="showDetail(submit.scoreid)">
+          View Detail
+        </div>
       </div>
-      <div class="psub-content-item right-border  col-2">
-        <div class="button-download">
+      <div class="psub-content-item  fontw-600 col-3 ">
+        <div class="button-download col-6 justify-content-md-center" (click)="downloadAssignmentFile(submit.scoreid)">
           Download
         </div>
       </div>
     </div>
   </div>
-</div>
+
+  <grader-question-list *ngIf="showDetailBool" [scoreId]="scoreId" (showDetail)="ChangeShowDetail($event)"></grader-question-list>

@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./course-item-list.component.scss"]
 })
 export class CourseItemListComponent implements OnInit {
+  errorPopup = false;
   errMsg: any;
   suc: boolean;
   loading = false;
@@ -19,6 +20,7 @@ export class CourseItemListComponent implements OnInit {
   courseSemester;
   courseYear;
   statusCoruse;
+  checkError = false;
   statusEntity = [
     { value: "opening", viewValue: "opening" },
     { value: "closed", viewValue: "closed" }
@@ -79,6 +81,7 @@ export class CourseItemListComponent implements OnInit {
           this.loading = false;
           this.editMode = false;
           this.errMsg = err;
+          this.errorPopup = true;
         }
       );
 

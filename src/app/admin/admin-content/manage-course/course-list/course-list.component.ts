@@ -7,6 +7,7 @@ import { CoursesService } from "../../../../service/courses/courses.service";
   styleUrls: ["./course-list.component.scss"]
 })
 export class CourseListComponent implements OnInit {
+  errExist: boolean;
   showMsg: boolean;
   allDataCourse: Object;
   constructor(private courseService: CoursesService) {}
@@ -21,6 +22,8 @@ export class CourseListComponent implements OnInit {
       this.allDataCourse = data;
       console.log(this.allDataCourse);
       console.log(data);
+    },err => {
+      this.errExist = true;
     });
   }
 }

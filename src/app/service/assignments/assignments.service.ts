@@ -98,6 +98,20 @@ export class AssignmentsService {
     });
   }
 
+  deleteAssignment(aid) {
+    return this.http.post(this.URL_SERVICE + this.path + "/delassignment", {
+      aid: aid
+    });
+  }
+
+  updateAssignment(aid, anumber, aname) {
+    return this.http.post(this.URL_SERVICE + this.path + "/updateassignment", {
+      aid: aid,
+      anumber: anumber,
+      aname: aname
+    });
+  }
+
   createAssignemnt(anumber, aname, noofquestion, startdate, duedate, dbid) {
     return this.http.post(this.URL_SERVICE + this.path + "/createassignment", {
       cid: localStorage.getItem("adminCourseId"),
@@ -108,5 +122,14 @@ export class AssignmentsService {
       duedate: duedate,
       dbid: dbid
     });
+  }
+
+  changeToClose(aid) {
+    return this.http.post(
+      this.URL_SERVICE + this.path + "/changestatustoclose",
+      {
+        aid: aid
+      }
+    );
   }
 }

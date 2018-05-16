@@ -36,7 +36,7 @@ export class CreateCourseComponent implements OnInit {
           this.showSuccessful = true;
           this.err = false;
           localStorage.setItem("adminCourseId", data["data"][0].cid);
-          localStorage.setItem("adminCourseObject", data["data"]);
+          localStorage.setItem("adminCourseObject", JSON.stringify(data["data"]));
           setTimeout(() => {
             this.router.navigate(["admin/managecourse/courselist"]);
           }, 1000);

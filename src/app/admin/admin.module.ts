@@ -34,6 +34,10 @@ import { CourseListComponent } from "./admin-content/manage-course/course-list/c
 import { CourseItemListComponent } from "./admin-content/manage-course/course-list/course-item-list/course-item-list.component";
 import { ScoreComponent } from "./admin-content/score/score.component";
 import { DirectiveModule } from "../directive/directive.module";
+import { ScoresService } from "../service/scores/scores.service";
+import { SubmitDetailComponent } from './admin-content/score/submit-detail/submit-detail.component';
+import { ViewSubmitStudentComponent } from './admin-content/score/view-submit-student/view-submit-student.component';
+import { QuestionModalComponent } from './admin-content/score/view-submit-student/question-modal/question-modal.component';
 
 @NgModule({
   imports: [
@@ -49,7 +53,12 @@ import { DirectiveModule } from "../directive/directive.module";
     RoutingModule,
     DirectiveModule
   ],
-  providers: [DatabasesService, AssignmentsService, CoursesService],
+  providers: [
+    DatabasesService,
+    AssignmentsService,
+    CoursesService,
+    ScoresService
+  ],
 
   declarations: [
     AdminComponent,
@@ -68,7 +77,10 @@ import { DirectiveModule } from "../directive/directive.module";
     CreateCourseComponent,
     CourseListComponent,
     CourseItemListComponent,
-    ScoreComponent
+    ScoreComponent,
+    SubmitDetailComponent,
+    ViewSubmitStudentComponent,
+    QuestionModalComponent
   ],
   exports: [
     AdminComponent,

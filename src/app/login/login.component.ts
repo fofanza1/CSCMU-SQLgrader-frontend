@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
         this.show_error = false;
         localStorage.setItem("courseId", data["courseid"]);
         localStorage.setItem("name", data["name"]);
-        localStorage.setItem("username", this.username);
+        localStorage.setItem("studentid", this.username);
         localStorage.setItem("token", data["token"]);
         this.router.navigate(["/home"]);
       },

@@ -11,19 +11,19 @@
     </div>
     <div class="r-content row">
       <div class="r-item col-6">
-        <div class="r-label-item">
+        <div class="r-label-item header-light">
           Student Code
         </div>
         <input [(ngModel)]="studentcode" maxlength="9" appOnlyNumber>
       </div>
       <div class="r-item col-6">
-        <div class="r-label-item">
+        <div class="r-label-item header-light">
           Full Name
         </div>
         <input [(ngModel)]="fullname" maxlength="70">
       </div>
       <div class="r-item col-6">
-        <div class="r-label-item">
+        <div class="r-label-item header-light">
           Password
         </div>
         <input type="password" [(ngModel)]="password" (ngModelChange)="checkPassword($event)" maxlength="16">
@@ -32,8 +32,8 @@
         </div>
       </div>
       <div class="r-item col-6">
-        <div class="r-label-item">
-          Password
+        <div class="r-label-item header-light">
+          Re-Password
         </div>
         <input type="password" [(ngModel)]="repassword" (ngModelChange)="checkPassword($event)" maxlength="16">
         <div class="red-item" *ngIf="boolPassword">

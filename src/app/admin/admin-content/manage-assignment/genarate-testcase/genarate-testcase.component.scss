@@ -1,3 +1,39 @@
+.data-assignment {
+    border: 2px solid #3f51b5;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 15px;
+    .input-edit-mode {
+        padding: 2px;
+        border-radius: 2px;
+        font-size: 1.2rem; // font-weight: 600;
+        margin-bottom: 15px;
+    }
+    .manage-mode {
+        display: flex;
+        justify-content: flex-end;
+        .edit-mode {
+            background-color: #3f51b5;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+            &.disabled {
+                background-color: #CCCCCC;
+            }
+        }
+        .delete-mode {
+            background-color: #f44336;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
+
 .question-list-container {
     margin: 25px;
     .ql-header {
@@ -60,38 +96,6 @@
             border-radius: 2px 0px 0px 2px;
         }
     }
-    .manage-mode {
-        display: flex;
-        justify-content: flex-end;
-        .edit-mode {
-            background-color: #3f51b5;
-            margin: 5px;
-            padding: 10px;
-            border-radius: 3px;
-            color: white;
-            cursor: pointer;
-        }
-        .delete-mode {
-            background-color: #f44336;
-            margin: 5px;
-            padding: 10px;
-            border-radius: 3px;
-            color: white;
-            cursor: pointer;
-        }
-    }
-    .data-assignment {
-        border: 2px solid #3f51b5;
-        font-weight: 600;
-        font-size: 1.2rem;
-        padding: 15px;
-        .input-edit-mode {
-            padding: 2px;
-            border-radius: 2px;
-            font-size: 1.2rem; // font-weight: 600;
-            margin-bottom: 15px;
-        }
-    }
     .form-manage-assignment-group {
         margin: 5px;
         outline: none;
@@ -129,7 +133,70 @@
         border-radius: 4px;
         cursor: pointer;
         &.not-sol {
-            background-color: #DDDDDD;
+            background-color: #dddddd;
         }
     }
+}
+
+.question-submit-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Black w/ opacity */
+    top: 0;
+    left: 0;
+    position: fixed;
+    /* Stay in place */
+    z-index: 1000;
+    height: 100%;
+    width: 100%; // overflow: auto;
+    /* Enable scroll if needed */
+    display: flex;
+    align-items: center; // flex-direction: column;
+    /* make main axis vertical */
+    justify-content: center; // align-content: center;
+    .qs-card {
+        background-color: white;
+        width: 75%;
+        padding: 30px;
+        height: 30%;
+        margin: 30px;
+        .qs-content-header {
+            text-align: center;
+            font-size: 1.7rem;
+            margin: 10px;
+        }
+        .qs-content {
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 15px;
+        }
+        .close-button {
+            display: flex;
+            justify-content: center;
+            .close-button-item {
+                background-color: #2b3d52;
+                padding: 10px;
+                width: 150px;
+                text-align: center;
+                margin: 5px;
+                border: 1px solid #cccccc;
+                border-radius: 2px;
+                font-weight: 600;
+                color: white;
+                cursor: pointer;
+                &.bg-delete {
+                    background-color: red;
+                    border: 1px solid #FFFFFF;
+                }
+            }
+        }
+    }
+}
+
+.show-update-sucessful {
+    padding: 20px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 15px;
 }

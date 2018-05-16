@@ -19,7 +19,7 @@
   <grader-question-list></grader-question-list> -->
   <mat-divider></mat-divider>
   <div class="submission-download-file d-flex row">
-    <div class="submission-download-file-header header-light col-3">
+    <div class="submission-download-file-header header-light col-4">
       <mat-icon>assignment</mat-icon>
       Download Assignment
     </div>
@@ -28,9 +28,9 @@
     </div>
   </div>
   <div class="submission-download-file d-flex row">
-    <div class="submission-download-file-header header-light col-3">
+    <div class="submission-download-file-header header-light col-4">
       <mat-icon>insert_drive_file</mat-icon>
-      Download File Scripts
+      Download Assignment File Template
     </div>
     <div class="button-download-file" (click)="downloadScriptFile()">
       Download
@@ -38,23 +38,32 @@
   </div>
   <mat-divider></mat-divider>
   <div class="submission-send-file">
-    <div class="submission-send-file-header header-light">
+    <div class="submission-send-file-header header-light" *ngIf="dataAssignement$.astatus === 'opening'">
       <mat-icon>input</mat-icon>
       Input File
     </div>
-    <mat-form-field>
-      <mat-select placeholder="Select  Databases">
+    <mat-form-field *ngIf="dataAssignement$.astatus === 'opening'">
+      <mat-select placeholder="Select  Databases" [(ngModel)]="selectDBMs">
         <mat-option *ngFor="let db of DBMs" [value]="db.value">
           {{ db.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="customFile">
-      <label class="custom-file-label" for="customFile">Choose File</label>
+    <div class="custom-file" *ngIf="dataAssignement$.astatus === 'opening'">
+      <input type="file" #selectedFile class="custom-file-input" id="customFile" ng2FileSelect [uploader]="sqlFile" (change)="detectFile()">
+      <label class="custom-file-label" for="customFile">{{ sqlFile.queue[0]? sqlFile.queue[0].file.name: "Choose file" }}</label>
     </div>
-    <div class="button-send-file">
+    <div class="closed-detail-input" *ngIf="dataAssignement$.astatus === 'closed'">
+      แบบฝึกหัดได้ทำการปิดแล้ว ไม่สามารถส่งได้
+    </div>
+    <label class="error-msg" *ngIf="errRes">
+      {{errRes}}
+    </label>
+    <label class="error-msg" *ngIf="errorFile"> {{errorMessageFile}}</label>
+    <div class="button-send-file disabled" *ngIf="(!sqlFile.queue[0] || errorFile) && dataAssignement$.astatus === 'opening'">
       Submit
+    </div>
+    <div class="button-send-file" (click)="sqlFile.queue[0].upload()" *ngIf="sqlFile.queue[0] && !errorFile"> Submit
     </div>
   </div>
   <mat-divider></mat-divider>

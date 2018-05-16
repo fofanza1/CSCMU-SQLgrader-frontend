@@ -75,3 +75,13 @@
 </div>
 
 <grader-modal *ngIf="loading"></grader-modal>
+
+<div class="pop-up-error" *ngIf="errorPopup">
+  <div class="err-card">
+    ไม่สามารถแก้ไขข้อมูลคอร์สรายวิชาได้
+    <br> เนื่องจากคอร์สรายวิชามีอยู่แล้วในระบบ
+    <div class="close-button" (click)="errorPopup = false">
+      ปิด
+    </div>
+  </div>
+</div>

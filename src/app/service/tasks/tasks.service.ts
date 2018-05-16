@@ -11,16 +11,39 @@ export class TasksService {
     this.path = "/tasks";
   }
   headerDetail = {
-    Authorization: localStorage.getItem("username")
+    Authorization: localStorage.getItem("studentid")
   };
 
   httpOptions = {
     headers: new HttpHeaders(this.headerDetail)
   };
 
+  assignmentListTask(cid) {
+    return this.http.get(
+      this.URL_SERVICE + this.path + "/assignmentlist/" + cid,
+      this.httpOptions
+    );
+  }
+
+  getSubmissionFile(submitid) {
+    return this.http.get(
+      this.URL_SERVICE + this.path + "/submissions/submitfile/" + submitid,
+      {
+        responseType: "blob"
+      }
+    );
+  }
+
   submissionDetail(aid) {
     return this.http.get(
       this.URL_SERVICE + this.path + "/submissions/" + aid,
+      this.httpOptions
+    );
+  }
+
+  getSubmissionDetail(sumbitid) {
+    return this.http.get(
+      this.URL_SERVICE + this.path + "/submissions/detail/" + sumbitid,
       this.httpOptions
     );
   }

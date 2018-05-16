@@ -12,6 +12,8 @@ import {
   ParsedResponseHeaders
 } from "ng2-file-upload/ng2-file-upload";
 import { DatabasesService } from "../../../../service/databases/databases.service";
+import { environment } from "../../../../../environments/environment";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "grader-create-db",
@@ -27,7 +29,7 @@ export class CreateDbComponent implements OnInit {
   dbNameInput = "";
   sqlFile: FileUploader;
   assignmentDbList;
-  URL = "http://localhost:3000/databases/createdb";
+  URL = environment.URL_SERVICE + "/databases/createdb";
   dbFile;
   dbmsValue = "";
   selected;
@@ -44,7 +46,7 @@ export class CreateDbComponent implements OnInit {
   ];
   openCreateDb = false;
   // dbmsValue: FormControl;
-  constructor(private dbService: DatabasesService) {
+  constructor(private dbService: DatabasesService, private router: Router) {
     // this.dbmsValue = new FormControl('psql');
     this.sqlFile = new FileUploader({
       url: this.URL,
@@ -82,7 +84,10 @@ export class CreateDbComponent implements OnInit {
     this.loading = false;
     this.successRes = true;
     let check_success = JSON.parse(response); //success server response
-    console.log(check_success);
+    // console.log(check_success);
+    setTimeout(() => {
+      this.router.navigate(["admin/managedb/dblist"]);
+    }, 3000);
   }
 
   onErrorItem(

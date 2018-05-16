@@ -8,9 +8,12 @@
       <mat-icon>access_time</mat-icon>
       {{date | date:'HH:mm:ss' }}
     </div>
-    <div class="username-navbar">
+    <div class="username-navbar" (click)="showLogout()">
       Hi, {{name}}
       <mat-icon>keyboard_arrow_down</mat-icon>
+      <div class="logout-button" *ngIf="logout" (click)="logoutHome()">
+        SIGN OUT
+      </div>
     </div>
   </div>
 </div>

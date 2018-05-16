@@ -11,11 +11,11 @@ export class AdminContentComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
+    // console.log(localStorage.getItem("adminCourseObject"));
     if (localStorage.getItem("adminCourseObject")) {
       this.coruseData = JSON.parse(localStorage.getItem("adminCourseObject"));
-      console.log(this.coruseData);
     } else {
-      this.router.navigate["admin/managecourse/courselist"];
+      this.router.navigate["managecourse/courselist"];
     }
   }
 }

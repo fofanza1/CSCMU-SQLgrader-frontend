@@ -1,0 +1,53 @@
+.view-student-detail-container {
+  mat-icon {
+    vertical-align: middle;
+    font-size: 23px; // padding-right: 5px;
+  }
+  margin: 20px;
+  .vsd-item {
+    font-size: 1.3rem;
+    padding: 5px;
+    &.header {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+  }
+}
+
+.vsd-table-container {
+  margin: 25px;
+  .vsd-table-header {
+    background-color: #8bc34a;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .vsd-item-container {
+    margin-left: 5px;
+    border-bottom: 1px solid #cacaca;
+    .vsd-table-item {
+      padding: 15px;
+      text-align: center;
+      font-size: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      .button {
+        padding: 7px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        color: white;
+        border-radius: 2px;
+        background-color: #33485f;
+        cursor: pointer;
+        &.view {
+          background-color: #4caf50;
+        }
+      }
+    }
+  }
+}

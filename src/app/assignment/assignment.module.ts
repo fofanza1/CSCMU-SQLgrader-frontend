@@ -8,9 +8,12 @@ import { QuestionListComponent } from "./submission/question-list/question-list.
 import { PrevSubmissionComponent } from "./submission/prev-submission/prev-submission.component";
 import { RoutingModule } from "./assignment.routing";
 import { AssignmentSubmissionDetailComponent } from "./submission/assignment-submission-detail/assignment-submission-detail.component";
+import { FormsModule } from "@angular/forms";
+import { FileUploadModule } from "ng2-file-upload";
+import { FilterAssignmentPipe } from "./pipe/filter-assignment.pipe";
 
 @NgModule({
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MaterialModule, FormsModule, FileUploadModule],
   exports: [AssignmentComponent, AssignmentListComponent],
   declarations: [
     AssignmentComponent,
@@ -18,7 +21,8 @@ import { AssignmentSubmissionDetailComponent } from "./submission/assignment-sub
     SubmissionComponent,
     QuestionListComponent,
     PrevSubmissionComponent,
-    AssignmentSubmissionDetailComponent
+    AssignmentSubmissionDetailComponent,
+    FilterAssignmentPipe
   ]
 })
 export class AssignmentModule {}

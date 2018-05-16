@@ -9,28 +9,33 @@
         No of Question
       </div>
       <div class="qs-table-header-item  col-3">
-        Time
+        Time (s)
       </div>
-      <div class="qs-table-header-item  col-6">
+      <div class="qs-table-header-item  col-3">
         Score
+      </div>
+      <div class="qs-table-header-item  col-3">
+        Full Score
       </div>
     </div>
     <div class="qs-table-item-row">
-      <div class="qs-table-item-container row" *ngFor="let data of data_;let i = index  ">
+      <div class="qs-table-item-container row" *ngFor="let data of submissionDetail;let i = index">
         <div class="qs-table-item header-light col-3">
-          {{i + 1}}
+          {{i+1}}
         </div>
         <div class="qs-table-item header-light col-3">
-          <!-- {{data.scoreid}} -->
-          {{data.submittime / 1000}} s
+          {{data?.submittime / 1000}}
         </div>
-        <div class="qs-table-item header-light col-6">
-          {{data.submitscore}}
+        <div class="qs-table-item header-light col-3">
+          {{data?.submitscore}}
+        </div>
+        <div class="qs-table-item header-light col-3">
+          100
         </div>
       </div>
     </div>
     <div class="qs-content-totalscore header-light" [ngClass]="{'totalscore-zero': totalscore === 0}">
-      Total Score: {{totalscore}}
+      Total Score:100
     </div>
     <mat-divider></mat-divider>
     <div class="close-button">

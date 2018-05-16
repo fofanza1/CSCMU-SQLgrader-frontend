@@ -4,7 +4,7 @@
       <mat-icon>search</mat-icon>
       Search
     </div>
-    <input class="header-light" placeholder="Search Assignment Number | Assignment Name | Status Assignment">
+    <input class="header-light" placeholder="Search Assignment Number | Assignment Name | Status Assignment" [(ngModel)]="searchAssignment">
   </div>
   <div class="header-alist-container row">
     <div class="header header-light col-2">
@@ -23,38 +23,21 @@
       Status
     </div>
   </div>
-  <div class="alist-container row">
+  <div class="alist-container row" *ngFor="let data of assignmentList?.data | filterAssignment: searchAssignment" (click)="goToAssignment(data?.anumber)">
     <div class="item-list col-2">
-      1
+      {{data?.anumber}}
     </div>
     <div class="item-list col-4">
-      Company Partice
+      {{data?.aname}}
     </div>
     <div class="item-list col-2">
-      20
+      {{data?.noofquestion}}
     </div>
     <div class="item-list col-2">
-      250 / 300
+      {{data?.score}} / {{data?.totalscore}}
     </div>
-    <div class="item-list col-2 boder-right">
-      Pass
-    </div>
-  </div>
-  <div class="alist-container row">
-    <div class="item-list col-2">
-      2
-    </div>
-    <div class="item-list col-4">
-      Company Ex
-    </div>
-    <div class="item-list col-2">
-      5
-    </div>
-    <div class="item-list col-2">
-      0 / 300
-    </div>
-    <div class="item-list col-2 boder-right">
-      Failed
+    <div class="item-list col-2 boder-right" [ngClass]="{'color-open': data.astatus === 'opening', 'color-closed': data.astatus === 'closed'}">
+      {{data.astatus}}
     </div>
   </div>
 </div>
