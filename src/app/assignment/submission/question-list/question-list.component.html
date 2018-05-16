@@ -1,54 +1,42 @@
-<div class="question-list-container">
-  <div class="question-list-header">
-    <div class="ql-header-left">
-      <mat-icon>view_list</mat-icon>
-      Question List
+<div class="question-submit-container">
+  <div class="qs-card">
+    <div class="qs-content-header header-light">
+      Submission Detail
     </div>
-    <!-- <div class="ql-header-right">
-      Hide
-      <mat-icon>keyboard_arrow_up</mat-icon>
-    </div> -->
-  </div>
-  <!-- <div class="question-list-content">
-    <div class="ql-content-header">
-      Databases - Company Base
+    <mat-divider></mat-divider>
+    <div class="qs-table-header row">
+      <div class="qs-table-header-item  col-3">
+        No of Question
+      </div>
+      <div class="qs-table-header-item  col-3">
+        Time
+      </div>
+      <div class="qs-table-header-item  col-6">
+        Score
+      </div>
     </div>
-  </div> -->
-  <div class="question-list-content">
-    <div class="ql-content-header">
-      Question — 1
+    <div class="qs-table-item-row">
+      <div class="qs-table-item-container row" *ngFor="let data of data_;let i = index  ">
+        <div class="qs-table-item header-light col-3">
+          {{i + 1}}
+        </div>
+        <div class="qs-table-item header-light col-3">
+          <!-- {{data.scoreid}} -->
+          {{data.submittime / 1000}} s
+        </div>
+        <div class="qs-table-item header-light col-6">
+          {{data.submitscore}}
+        </div>
+      </div>
     </div>
-    <div class="ql-content">
-      Yet the benefits of digital over analog are undeniable, which is why you see digital computers so often used to process signals
-      with much more exactitude—and using much more energy—than is really required. An interesting and unconventional compromise
-      is a method called stochastic computing, which processes analog probabilities by means of digital circuits. This largely
-      forgotten technique could significantly improve future retinal implants and machine-learning circuits—to give a couple
-      of applications we’ve investigated—which is why we believe stochastic computing is set for a renaissance.
+    <div class="qs-content-totalscore header-light" [ngClass]="{'totalscore-zero': totalscore === 0}">
+      Total Score: {{totalscore}}
     </div>
-  </div>
-  <div class="question-list-content">
-    <div class="ql-content-header">
-      Question — 2
-    </div>
-    <div class="ql-content">
-      วันหนึ่งฉันเดินเข้าป่า ฉันเจอนกตัวหนึ่ง มันถามฉันว่าจะไปไหน ฉันจึงตอบ อยากไปให้ไกล ไกลเกินกว่าที่ฉันเคยไป ถ้าเราเหนื่อยล้า
-      จงเดินเข้าป่า อย่างน้อยก็ไม่ต้องพบเจอ คนใจร้ายอย่างเธอ คนที่ไม่มีน้ำใจ ไม่มีเยื่อใยให้คนเคยรักกัน ใจร้ายอย่างเธอ ต้องทิ้งให้อยู่คนเดียว
-      เผื่อเธอเหงาขึ้นมาจะได้กลับมารักกัน วันหนึ่งฉันเดินเข้าป่า ฉันเจอเสือตัวใหญ่ มันถามฉันว่ากลัวบ้างไหม ฉันจึงตอบว่าไม่เท่าไร
-      ยังดีกว่าคนไร้หัวใจ เมื่อเราปวดร้าว จงเดินเข้าป่า อย่างน้อยก็ไม่ต้องพบเจอ คนใจร้ายอย่างเธอ คนที่ไม่มีน้ำใจ ไม่มีเยื่อใยให้คนเคยรักกัน
-      ใจร้ายอย่างเธอ ต้องทิ้งให้อยู่คนเดียว เผื่อเธอเหงาขึ้นมาจะได้กลับมารักกัน คนใจร้าย คนใจร้าย ไม่มีเยื่อใยให้คนเคยรักกัน
-      eiei วันหนึ่งฉันเดินเข้าป่า
-    </div>
-  </div>
-  <div class="question-list-content">
-    <div class="ql-content-header">
-      Question — 3
-    </div>
-    <div class="ql-content">
-      Yet the benefits of digital over analog are undeniable, which is why you see digital computers so often used to process signals
-      with much more exactitude—and using much more energy—than is really required. An interesting and unconventional compromise
-      is a method called stochastic computing, which processes analog probabilities by means of digital circuits. This largely
-      forgotten technique could significantly improve future retinal implants and machine-learning circuits—to give a couple
-      of applications we’ve investigated—which is why we believe stochastic computing is set for a renaissance.
+    <mat-divider></mat-divider>
+    <div class="close-button">
+      <div class="close-button-item" (click)="clickClose()">
+        CLOSE
+      </div>
     </div>
   </div>
 </div>

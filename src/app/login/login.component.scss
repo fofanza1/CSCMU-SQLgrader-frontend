@@ -17,6 +17,13 @@
                 font-weight: 300;
                 padding: 10px;
             }
+            .login-error {
+                display: flex;
+                justify-content: center;
+                background-color: #F44336;
+                padding: 15px;
+                color: white;
+            }
             .login-button {
                 color: white;
                 font-weight: 600;
@@ -36,7 +43,6 @@
                 padding: 10px;
                 input {
                     border: 1px solid #9e9e9e;
-                    color: #2f8df8;
                     padding: 5px;
                     width: 100%;
                     border-radius: 2px;
@@ -44,6 +50,21 @@
             }
             background-color: white;
             padding: 30px 100px;
+            .register-link {
+                color: white;
+                font-weight: 600;
+                border-radius: 2px;
+                background-color: #8BC34A;
+                margin: 10px;
+                width: 95%;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

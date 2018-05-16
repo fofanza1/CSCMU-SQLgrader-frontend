@@ -53,6 +53,14 @@
             border-left: 0.4px solid #424242;
             border-bottom: 0.4px solid #424242;
             justify-content: center;
+            &.color-open {
+                color: #8BC34A;
+                font-weight: 600;
+            }
+            &.color-closed {
+                color: red;
+                font-weight: 600;
+            }
         }
         .boder-right {
             border-right: 0.4px solid #424242;

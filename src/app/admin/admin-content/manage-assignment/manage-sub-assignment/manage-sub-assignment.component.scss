@@ -1,3 +1,36 @@
+.assignment-list {
+    .al-header-table {
+        margin: 0px 15px;
+        padding-bottom: 0px;
+        .al-header {
+            background-color: #f44336;
+            color: white;
+            padding: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-right: 1.2px solid white;
+            text-align: center;
+        }
+    }
+    .al-content-table {
+        margin: 0px 15px;
+        .al-content {
+            padding: 10px;
+            font-size: 1.1 rem;
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+            text-align: center;
+            &.end-content {
+                border-right: 1px solid black;
+            }
+        }
+        &:hover {
+            background-color: #ECEFF1;
+            cursor: pointer;
+        }
+    }
+}
+
 .manage-sub-assignment-container {
     margin: 20px;
     .manage-sub-assignment {
@@ -23,7 +56,7 @@
             cursor: pointer;
         }
         .delete-mode {
-            background-color: #F44336;
+            background-color: #f44336;
             margin: 5px;
             padding: 10px;
             border-radius: 3px;
@@ -39,6 +72,7 @@
     }
     .form-manage-assignment-group {
         margin: 5px;
+        outline: none;
         border: 10px;
         .label {
             font-size: 1.2rem;
@@ -46,8 +80,8 @@
         }
         .form-control {
             border-radius: 2px;
-            font-size: 1.1rem;
-            font-weight: 300;
+            font-size: 1.2rem;
+            font-weight: 600;
             margin-bottom: 15px;
         }
     }

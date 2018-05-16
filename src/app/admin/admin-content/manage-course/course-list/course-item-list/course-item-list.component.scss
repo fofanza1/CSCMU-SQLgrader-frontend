@@ -1,0 +1,90 @@
+.course-list-item {
+    margin: 0px 20px;
+    .cl-item {
+        padding: 15px;
+        font-size: 1.2rem;
+        text-align: center;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        input {
+            width: 100%; // border-radius: 1px;
+            padding: 3px;
+            margin-top: 5px;
+        }
+        mat-form-field {
+            width: 100%;
+        }
+        &.end {
+            border-right: 1px solid black;
+        }
+        &.closed {
+            font-weight: 600;
+            color: #f44336;
+        }
+        &.opening {
+            font-weight: 600;
+            color: #3f51b5;
+        }
+        mat-icon {
+            cursor: pointer;
+            vertical-align: middle;
+            font-size: 23px; // padding-right: 5px;
+        }
+        .cl-button {
+            padding: 7px;
+            color: white;
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 2px;
+            &.edit {
+                background-color: #3f51b5;
+                &.disabled {
+                    background: #dddddd;
+                }
+            }
+            &.closed {
+                background-color: #f44336;
+            }
+            &.opening {
+                background-color: #2196f3;
+            }
+        }
+    }
+}
+
+.pop-up-error {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Black w/ opacity */
+    top: 0;
+    left: 0;
+    position: fixed;
+    /* Stay in place */
+    z-index: 1000;
+    height: 100%;
+    width: 100%; // overflow: auto;
+    /* Enable scroll if needed */
+    display: flex;
+    align-items: center; // flex-direction: column;
+    /* make main axis vertical */
+    justify-content: center;
+    .err-card {
+        margin: 20px; // height: 30vh;
+        width: 500px;
+        padding: 20px;
+        text-align: center;
+        background-color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+        .close-button {
+            margin: 10px;
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}

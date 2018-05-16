@@ -1,0 +1,46 @@
+<div class="view-student-detail-container row">
+  <div class="vsd-item header col-12">
+    <mat-icon>pageview</mat-icon>
+    Summary Detail
+  </div>
+  <div class="vsd-item col-3">
+    StudentId: {{nameStudentDetail?.studentid}}
+  </div>
+  <div class="vsd-item col-3">
+    Name: {{nameStudentDetail?.fullname}}
+  </div>
+</div>
+<mat-divider></mat-divider>
+<div class="vsd-table-container row">
+  <div class="vsd-table-header col-3">
+    Submission No.
+  </div>
+  <div class="vsd-table-header col-3">
+    Score
+  </div>
+  <div class="vsd-table-header col-3">
+
+  </div>
+  <div class="vsd-table-header col-3">
+
+  </div>
+  <div class="vsd-item-container col-12 row" *ngFor="let data of submissionDetail; let i = index">
+    <div class="vsd-table-item header-light col-3">
+      {{i + 1}}
+    </div>
+    <div class="vsd-table-item header-light col-3">
+      {{data?.score}}
+    </div>
+    <div class="vsd-table-item header-light col-3">
+      <div class="button view" (click)="viewDetail(data.scoreid)">
+        View Detail
+      </div>
+    </div>
+    <div class="vsd-table-item header-light col-3">
+      <div class="button">
+        View Answer
+      </div>
+    </div>
+  </div>
+</div>
+<grader-question-modal [data]="detailSubmission" (showDetail)="ChangeShowDetail($event)" *ngIf="showDetail"></grader-question-modal>

@@ -1,3 +1,17 @@
+.msg {
+    padding: 15px;
+    color: white;
+    margin: 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    &.err {
+        background-color: red;
+    }
+    &.suc {
+        background-color: #8BC34A;
+    }
+}
+
 .create-assignment-container {
     mat-icon {
         vertical-align: middle;
@@ -23,6 +37,10 @@
         .ca-form {
             .label-ca-form {
                 padding: 10px;
+            }
+            .error-number-assignment {
+                color: red;
+                padding: 3px 10px;
             }
             .form-control {
                 border: 1px solid #1a237e;
@@ -53,6 +71,10 @@
             color: white;
             font-weight: 600;
             background-color: #8BC34A;
+            &.disabled {
+                background-color: #DDDDDD;
+                cursor: not-allowed;
+            }
         }
     }
 }

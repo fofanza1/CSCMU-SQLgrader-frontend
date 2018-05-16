@@ -1,17 +1,23 @@
 <div class="login-container">
   <div class="login-form">
     <div class="login-card">
+      <div class="login-error header-light" *ngIf="show_error">
+        Failed to log in.
+      </div>
       <div class="login-header header-light">
         Welcome to SQL grader
       </div>
       <div class="login-input-form">
-        <input type="text" placeholder="Username">
+        <input type="text" placeholder="StudentId" [(ngModel)]="username" maxlength="9">
       </div>
       <div class="login-input-form">
-        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Password" [(ngModel)]="password" maxlength="16">
       </div>
-      <div class="login-button">
+      <div class="login-button" (click)="login()">
         LOGIN
+      </div>
+      <div class="register-link" routerLink="/register">
+        Register
       </div>
     </div>
   </div>

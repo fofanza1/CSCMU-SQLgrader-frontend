@@ -1,24 +1,181 @@
-<div class="genarate-testcase-container">
-  <div class="select-assignment-dropdown">
-    <div class="sad-header">
-      Select Assignment
+<div class="show-update-sucessful" *ngIf="showSucessUpdate">
+  อัปเดทรายละเอียดแบบฝึกหัดสำเร็จ
+</div>
+<div class="data-assignment">
+  <div class="manage-mode">
+    <div class="edit-mode" (click)="showUpdate = true;" *ngIf="!showUpdate">
+      <mat-icon>edit</mat-icon>
+      Edit Assignment
     </div>
-    <select class="custom-select">
-      <option selected>Choose...</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
+    <div class="delete-mode" (click)="showError = true;" *ngIf="!showUpdate">
+      <mat-icon>delete</mat-icon>
+      Delete Assignment
+    </div>
   </div>
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="customFile">
-    <label class="custom-file-label" for="customFile">Choose Testcase File</label>
+  <div class="manage-mode">
+    <div class="edit-mode" *ngIf="showUpdate && updateStatus" (click)="updateAssignment()">
+      <mat-icon>edit</mat-icon>
+      Update Assigment
+    </div>
+    <div class="edit-mode disabled" *ngIf="showUpdate && !updateStatus">
+      <mat-icon>edit</mat-icon>
+      Update Assigment
+    </div>
+    <div class="delete-mode" (click)="showUpdate = false;" *ngIf="showUpdate">
+      Cancel
+    </div>
   </div>
-  <div class="g-button-form">
-    <div class="genarate-button">
-      Genarate Test Case
+  <div class="assignment-detail">
+    <div class="data-order" *ngIf="!showUpdate">
+      <mat-icon>assignment </mat-icon>
+      Assignment# {{dataAssigment?.anumber}} - {{dataAssigment?.aname}}
+    </div>
+    <div class="data-order" *ngIf="showUpdate">
+      <mat-icon>assignment </mat-icon>
+      Assignment#
+      <input appOnlyNumber [style.width]="'50px'" [(ngModel)]="editAssignmentNumber" maxlength="3" (ngModelChange)="assignmentNumberCheck()"> -
+      <input [style.width]="'200px'" [(ngModel)]="editAssignmentName">
+    </div>
+    <div class=" data-order ">
+      <mat-icon [style.color]="'#FFEB3B'">create_new_folder
+      </mat-icon>
+      DatabaseName: {{dataAssigment?.dbname}}
+    </div>
+    <div class="data-order ">
+      <mat-icon>list </mat-icon>
+      Assignment Status: {{dataAssigment?.astatus}}
+    </div>
+    <div class="data-order ">
+      <mat-icon>list </mat-icon>
+      No of Question {{dataAssigment?.noofquestion}}
+    </div>
+    <div class="data-order ">
+      <mat-icon [style.color]=" '#3f51b5' ">today </mat-icon>
+      Start Date : {{dataAssigment?.startdate | date:'medium'}} &emsp;
+      <mat-icon [style.color]=" 'red' ">today </mat-icon>
+      Due Date : {{dataAssigment?.duedate | date:'medium'}}
+    </div>
+    <div class="data-order ">
+      <mat-icon [style.color]=" '#4CAF50' ">equalizer </mat-icon>
+      Total Score: {{dataAssigment?.totalscore}}
+    </div>
+  </div>
+</div>
+<div class="question-list-container ">
+  <div class="ql-header row ">
+    <div class="ql-header-item col-2 ">
+      Question Number
+    </div>
+    <div class="ql-header-item col-5 ">
+      Question Description
+    </div>
+    <div class="ql-header-item col-3 ">
+      Solution Problem
+    </div>
+    <div class="ql-header-item col-2 ">
+      Score
+    </div>
+  </div>
+  <div class="ql-content row " *ngFor="let data of dataQuestion " (click)="selectDataQuestion(data) ">
+    <div class="ql-content-item col-2 ">
+      {{data.qnumber}}
+    </div>
+    <div class="ql-content-item col-5 " [ngClass]="{ 'null-data': !data.qdescription} ">
+      {{data.qdescription || 'NULL'}}
+    </div>
+    <div class="ql-content-item col-3 " [ngClass]="{ 'null-data': !data.solution} ">
+      {{data.solution || 'NULL'}}
+    </div>
+    <div class="ql-content-item end-ql-content col-2 " [ngClass]="{ 'null-data': !data.score} ">
+      {{data.score || '0'}}
+    </div>
+  </div>
+</div>
+
+<div class="manage-sub-assignment-container ">
+  <div class="error-update " *ngIf="errorUpdate ">
+    <pre>{{errorMsg | json}}</pre>
+  </div>
+  <div class="manage-sub-assignment " *ngIf="checktSelectQuestion ">
+    <!-- <div class="input-group mb-3 ">
+      <label class="number-assignment-label " for="inputGroupSelect01 ">Number of Question</label>
+      <select class="custom-select " id="inputGroupSelect01 ">
+        <option *ngFor="let int of noofquestionArr "> {{ int }}</option>
+      </select>
+    </div> -->
+    <mat-divider></mat-divider>
+    <div class="form-manage-assignment-group ">
+      <label class="label ">Question Description</label>
+      <textarea class="form-control " rows="3 " max="200 " [(ngModel)]="dataUpdate.qdescription "></textarea>
+    </div>
+    <div class="form-manage-assignment-group ">
+      <label class="label ">Solution Problem</label>
+      <label class="warning label ">MySQL - insert, update ต้อง select ค่าออกมาด้วย | delete ต้องเพิ่ม returning เช่น DELETE FROM t RETURNING *;
+      </label>
+      <!-- <br>
+      <mat-form-field class="col-3 create-db-form ">
+        <mat-select placeholder="Select Database " [(ngModel)]="dbmsValue " required>
+          <mat-option *ngFor="let db of DBMs " [value]="db.value ">
+            {{ db.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <textarea class="form-control solution-problem " rows="3 " max="200 " [(ngModel)]="dataUpdate.solution "></textarea>
+    </div>
+    <div class="form-manage-assignment-group ">
+      <label class="label ">Score</label>
+      <input type="number " min="1 " pattern="\d+ " class="form-control " [style.width]=" '200px' " [(ngModel)]="dataUpdate.score ">
+    </div>
+    <div class="d-flex justify-content-center ">
+      <div class="not-sol button-submit " *ngIf="!dataUpdate.solution ">
+        Update Question
+      </div>
+      <div class="button-submit " (click)="updateQuestion() " *ngIf="dataUpdate.solution ">
+        Update Question
+      </div>
+    </div>
+    <div class="form-manage-assignment-group ">
+      <label class="label ">Answer</label>
+      <mat-divider></mat-divider>
+      <div class="table-responsive " *ngIf="dataUpdate.answer.length> 0">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th *ngFor="let key of keyAnswer">{{key}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let answer of dataUpdate.answer">
+              <td *ngFor="let key of keyAnswer">{{answer[key]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+</div>
+
+
+
+<div class="question-submit-container" *ngIf="showError">
+  <div class="qs-card">
+    <div class="qs-content-header header-light">
+      DELETE ?
+    </div>
+    <mat-divider></mat-divider>
+    <div class="qs-content">
+      ต้องการลบ Assignment# {{dataAssigment?.anumber}} - {{dataAssigment?.aname}} หรือไม่ ?
     </div>
 
+    <div class="close-button">
+      <div class="close-button-item" (click)="showError = false;">
+        CLOSE
+      </div>
+      <div class="close-button-item bg-delete" (click)="deleteAssignment()">
+        DELETE
+      </div>
+    </div>
   </div>
-
 </div>

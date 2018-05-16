@@ -1,0 +1,24 @@
+.manage-course-container {
+    .mc-header-menu {
+        background-color: #BA68C8;
+        margin: 10px;
+        text-align: center;
+        font-size: 1.4rem;
+        .mc-menu-item {
+            outline: none;
+            cursor: pointer;
+            padding: 10px;
+            color: white;
+            border: 2px solid white;
+            &:hover {
+                background-color: #6A1B9A;
+            }
+            &.mc-menu-active {
+                background-color: #6A1B9A;
+            }
+        }
+    }
+    .mc-content {
+        margin: 10px;
+    }
+}

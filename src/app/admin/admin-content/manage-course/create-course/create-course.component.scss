@@ -1,0 +1,55 @@
+.create-course-container {
+    padding: 15px;
+    margin: 15px;
+    border: 2px solid #673ab7;
+    border-left: 12px solid #311b92;
+    .cc-header {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 10px;
+    }
+    .cc-input-row {
+        display: flex;
+        .cc-input {
+            width: 100%;
+            margin: 10px;
+            .cc-input-label {
+                font-size: 1.1rem;
+                margin-right: 10px;
+                padding: 2px;
+                font-weight: 600;
+            }
+            .cc-warning-label {
+                font-size: .8rem;
+                margin-right: 10px;
+                padding: 2px;
+                color: red;
+            }
+            input {
+                border: 1px solid #311b92;
+                padding: 2px;
+                border-radius: 2px;
+            }
+        }
+    }
+    .cc-submit {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        .cc-button {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            width: 200px;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background-color: #311b92;
+            cursor: pointer;
+            &.disabled {
+                background-color: #dddddd;
+                cursor: default;
+            }
+        }
+    }
+}

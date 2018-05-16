@@ -1,3 +1,11 @@
+<div class="err msg" *ngIf="errMsg">
+  {{errMsg}}
+</div>
+
+<div class="suc msg" *ngIf="sucMsg">
+  Create Assignment Successful
+</div>
+
 <div class="create-assignment-container">
   <div class="create-assignment-header">
     Create Assignment
@@ -8,50 +16,58 @@
         <mat-icon>star</mat-icon>
         Number of Assignment :
       </div>
-      <input type="number" min="1" pattern="\d+">
+      <input type="text" (ngModelChange)="checkAssignmentNumber($event)" [(ngModel)]="assignmentNumber" appOnlyNumber maxlength="3">
+      <div class="error-number-assignment" *ngIf="errorMessageNumberAssignemnt">
+        {{errorMessageNumberAssignemnt || 'error'}}
+      </div>
     </div>
     <div class="ca-form col-6">
       <div class="label-ca-form">
         <mat-icon>assignment</mat-icon>
         Assignment Title:
       </div>
-      <input type="text">
+      <input type="text" maxlength="100" [(ngModel)]="assignmentName">
     </div>
     <div class="ca-form col-6">
       <div class="label-ca-form">
         <mat-icon>list </mat-icon>
         No of Question :
       </div>
-      <input type="text">
+      <input type="text" [(ngModel)]="noofquestion" appOnlyNumber maxlength="2">
     </div>
     <div class="ca-form col-6">
       <div class="label-ca-form">
         <mat-icon>list </mat-icon>
         Select Databases
       </div>
-      <select class="form-control">
-        <option>Select Databases</option>
+      <select class="form-control" [(ngModel)]="selectDatabases">
+        <option *ngFor="let db of allDatabasesObj" [ngValue]="db.dbid">{{db.dbid}}: {{db.dbname}}</option>
       </select>
     </div>
-    <div class="ca-form col-6">
+    <div class="ca-form col-12">
       <div class="label-ca-form ">
         <mat-icon [style.color]=" '#3f51b5' ">today </mat-icon>
-        Start Date :
+        Start Date - DueDate :
       </div>
-      <input type="text " [owlDateTimeTrigger]="dt5 " [owlDateTime]="dt5 ">
-      <owl-date-time [pickerMode]=" 'dialog' " #dt5></owl-date-time>
+      <input type="text" [(ngModel)]="selectedMoment" [owlDateTimeTrigger]="dt5" [min]="minStartDate" [owlDateTime]="dt5" [selectMode]="'range'">
+      <owl-date-time #dt5></owl-date-time>
     </div>
-    <div class="ca-form col-6">
-      <div class="label-ca-form">
-        <mat-icon [style.color]=" 'red' ">today </mat-icon>
-        Due Date :
+    <div class="ca-button ">
+      <div class="create-assignment-button disabled" *ngIf="!assignmentNumber || !assignmentName || !noofquestion || !selectDatabases || !selectedMoment[0] || !selectedMoment[1] || errorMessageNumberAssignemnt">
+        Create Assignment
       </div>
-      <input type="text ">
+      <div class="create-assignment-button" *ngIf="assignmentNumber && assignmentName && noofquestion && selectDatabases && selectedMoment[0] && selectedMoment[1] && !errorMessageNumberAssignemnt"
+        (click)="createAssignment()">
+        Create Assignment
+      </div>
     </div>
   </div>
-  <div class="ca-button">
-    <div class="create-assignment-button">
-      Create Assignment
-    </div>  
-  </div>
-</div>
+
+  <grader-modal *ngIf="loading"></grader-modal>
+
+
+  <!-- <pre><code highlight [textContent]="code " ></code></pre> -->
+
+
+  <!-- <textarea highlight-js [options]="{} " [lang]=" 'typescript' ">
+</textarea> -->

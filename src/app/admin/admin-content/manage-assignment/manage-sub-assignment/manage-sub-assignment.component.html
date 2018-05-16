@@ -1,57 +1,37 @@
-<div class="manage-sub-assignment-container">
-  <div class="data-assignment">
-    <div class="manage-mode">
-      <div class="edit-mode">
-        <mat-icon>edit</mat-icon>
-        Edit Assignment
-      </div>
-      <div class="delete-mode">
-        <mat-icon>delete</mat-icon>
-        Delete Assignment
-      </div>
+<div class="search-input">
+  <div class="search-icon">
+    <img src="assets/icons/search_icon.png">
+  </div>
+  <!-- <input type="text" auto-complete [source]="allDatabaseAssignment" [max-num-list]="3" #searchDb (keyup.enter)="searchDbName(searchDb.value);searchDb.value = '';"  placeholder="Search Databases Name"> -->
+  <input type="text" #searchDb placeholder="Search Assignment by Assignemnt Number or Assignment Name" [(ngModel)]="searchText">
+</div>
+<div class="assignment-list">
+  <div class="al-header-table row">
+    <div class="al-header col-3">
+      Assignment Number
     </div>
-    <div class="data-order">
-      Assignment# 2 - AssignmentName
+    <div class="al-header col-3">
+      Assignment Name
     </div>
-    <div class="data-order">
-      <mat-icon>list </mat-icon>
-      All sub Assignment: 20
+    <div class="al-header col-3">
+      No of Question
     </div>
-    <div class="data-order">
-      <mat-icon [style.color]="'#3f51b5'">today </mat-icon>
-      Start Date : 07/03/1996 13:33 &emsp;
-      <mat-icon [style.color]="'red'">today </mat-icon>
-      Due Date : 07/03/1996 13:33
-    </div>
-    <div class="data-order">
+    <div class="al-header col-3">
+      Status
     </div>
   </div>
-  <div class="manage-sub-assignment">
-    <!-- <mat-form-field>
-      <mat-select placeholder=" Number of Assignment ">
-        <mat-option *ngFor="let int of [0,1,2,3,4] "> {{ int }} </mat-option>
-      </mat-select>
-    </mat-form-field> -->
-    <div class="input-group mb-3">
-      <label class="number-assignment-label" for="inputGroupSelect01">Number of Assignment</label>
-      <select class="custom-select" id="inputGroupSelect01">
-        <option *ngFor="let int of [1,2,3,4]"> {{ int }}</option>
-      </select>
+  <div class="al-content-table row" *ngFor="let assignemnt of allDataAssignment | assignmentFilter : searchText" (click)="goToQuestion(assignemnt.anumber)">
+    <div class="al-content col-3">
+      {{assignemnt.anumber}}
     </div>
-    <mat-divider></mat-divider>
-    <div class="form-manage-assignment-group">
-      <label class="label">Question Description</label>
-      <textarea class="form-control" rows="3" max="200"></textarea>
+    <div class="al-content col-3">
+      {{assignemnt.aname}}
     </div>
-    <div class="form-manage-assignment-group">
-      <label class="label">Score</label>
-      <input type="number" min="1" pattern="\d+" class="form-control" [style.width]="'200px'">
-      <mat-divider></mat-divider>
-    </div>"
-    <div class="d-flex justify-content-center">
-      <div class="button-submit">
-        Create Question
-      </div>
+    <div class="al-content col-3">
+      {{assignemnt.noofquestion}}
+    </div>
+    <div class="al-content end-content col-3">
+      {{assignemnt.astatus}}
     </div>
   </div>
 </div>

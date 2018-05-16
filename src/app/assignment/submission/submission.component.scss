@@ -52,6 +52,17 @@
             vertical-align: middle;
             font-size: 21px;
         }
+        .closed-detail-input {
+            color: white;
+            background-color: red;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.6rem;
+        }
+        .error-msg {
+            color: red;
+        }
         .custom-select {
             width: 250px;
             background-color: #2B3D52;
@@ -66,6 +77,9 @@
             width: 500px;
             background-color: #2B3D52;
             color: #CCCCCC;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             &::after {
                 font-weight: 600;
             }
@@ -81,6 +95,11 @@
             border-radius: 4px;
             text-align: center;
             cursor: pointer;
+            &.disabled {
+                background-color: #CCCCCC;
+                color: white;
+                cursor: not-allowed;
+            }
         }
     }
 }

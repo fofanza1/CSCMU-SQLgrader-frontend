@@ -1,0 +1,56 @@
+<div class="view-scores-container">
+  <div class="select-assignment">
+    <div class="header-light">
+      Select Assignment Number and Name:
+    </div>
+    <mat-form-field class="form-select-assignment">
+      <mat-select [(ngModel)]="assignmentData" (ngModelChange)="changeScoreAssignment($event)">
+        <mat-option *ngFor="let data of allDataAssignment" [value]="data">
+          {{data.anumber}}) {{ data.aname }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <mat-divider></mat-divider>
+  <grader-submit-detail [dataDetail]="allScore" *ngIf="!showDetail"></grader-submit-detail>
+  <mat-divider></mat-divider>
+  <div *ngIf="!showDetail">
+    <div class="vs-header header-light row">
+      <div class="vs-header-item col-3">
+        StudentId
+      </div>
+      <div class="vs-header-item col-3">
+        Name
+      </div>
+      <div class="vs-header-item col-3">
+        Max Score ({{assignmentData?.totalscore}})
+      </div>
+      <div class="vs-header-item col-3">
+
+      </div>
+    </div>
+    <div class="vs-item-container header-light row" *ngFor="let score of allScore">
+      <div class="vs-item col-3">
+        {{score.studentid}}
+      </div>
+      <div class="vs-item col-3">
+        {{score.fullname}}
+      </div>
+      <div class="vs-item col-3" [ngClass]="{'text-success': score.score >= assignmentData?.totalscore
+            , 'text-danger': 0 >= score.score }">
+        {{score.score}}
+      </div>
+      <div class="vs-item  col-3">
+        <div class="vs-button" (click)="clickViewDetail(score)">
+          View Detail Score
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="go-back-to-summary" (click)="showDetail = false" *ngIf="showDetail">
+  Back to All Summary
+</div>
+<grader-view-submit-student [nameDetail]="detail" [dataDetail]="submissionDetail" *ngIf="showDetail"></grader-view-submit-student>

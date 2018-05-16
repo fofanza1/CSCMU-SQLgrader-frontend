@@ -15,7 +15,7 @@ const routes: Routes = [
         component: AssignmentComponent
       },
       {
-        path: "assignment/1",
+        path: "assignment/:anumber",
         component: SubmissionComponent
       },
       { path: "test", component: ParcticeComponent }

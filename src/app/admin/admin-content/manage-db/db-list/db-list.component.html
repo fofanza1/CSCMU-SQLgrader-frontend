@@ -8,6 +8,14 @@
     Not Found Database !
   </div>
 </div>
+<div class="dbname-list-table row">
+  <div class="header-dbname-list col-8">
+    Database Name
+  </div>
+  <div class="dbname-list-item col-8" *ngFor="let name of allDatabaseAssignment" (click)="searchDbName(name)">
+    {{name}}
+  </div>
+</div>
 <hr>
 <div class="db-name-container">
   <div class="db-name-list">
@@ -15,10 +23,10 @@
       {{dbName? dbName:"กรุณาเลือก Databases"}}
     </div>
   </div>
-  <div class="db-del-button" *ngIf="existsDb === 1">
+  <!-- <div class="db-del-button" *ngIf="existsDb === 1">
     <div class="danger-del-text"> Danger Zone </div>
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete Database</button>
-  </div>
+  </div> -->
   <div class="choose-table-text" *ngIf="existsDb === 1">
     Choose Table :
   </div>
@@ -44,7 +52,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -62,4 +70,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

@@ -1,0 +1,68 @@
+.register-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #434a52;
+    min-height: 100vh;
+    .register-card {
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        margin: 30px;
+        width: 70vw;
+        .r-header {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            font-size: 2.4rem;
+        }
+        .suc-msg {
+            padding: 15px;
+            color: white;
+            background-color: #8bc34a;
+            font-size: 1.2rem;
+        }
+        .err-msg {
+            padding: 15px;
+            color: white;
+            background-color: red;
+            font-size: 1.2rem;
+        }
+        .r-content {
+            margin: 20px;
+            .r-item {
+                padding: 5px;
+                input {
+                    width: 100%;
+                }
+                .r-label-item {
+                    font-size: 1.2rem;
+                }
+                .red-item {
+                    color: red;
+                    padding: 5px;
+                }
+            }
+        }
+        .r-submit {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            .r-button-submit {
+                padding: 10px;
+                width: 150px;
+                text-align: center;
+                color: white;
+                border-right: 2px;
+                font-weight: 600;
+                font-size: 1.5rem;
+                background-color: #00b5ad;
+                cursor: pointer;
+                &.disabled {
+                    background-color: #cccccc;
+                    cursor: default;
+                }
+            }
+        }
+    }
+}

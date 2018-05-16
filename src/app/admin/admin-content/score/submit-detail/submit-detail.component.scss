@@ -1,0 +1,11 @@
+.submit-detail-container {
+    padding: 10px;
+    .sd-item {
+        padding: 5px;
+        font-size: 1.2rem;
+        &.header-item {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+    }
+}

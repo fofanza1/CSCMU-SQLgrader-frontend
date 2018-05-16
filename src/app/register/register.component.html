@@ -1,0 +1,62 @@
+<div class="register-container">
+  <div class="register-card">
+    <div class="suc-msg" *ngIf="sucCheck">
+      ลงทะเบียนเสร็จสิ้น กำลังไปหน้า login ภายใน 3 วินาที
+    </div>
+    <div class="err-msg" *ngIf="errCheck">
+      รหัสนักศึกษานี้มีอยู่ในระบบ
+    </div>
+    <div class="r-header header-light">
+      Register
+    </div>
+    <div class="r-content row">
+      <div class="r-item col-6">
+        <div class="r-label-item header-light">
+          Student Code
+        </div>
+        <input [(ngModel)]="studentcode" maxlength="9" appOnlyNumber>
+      </div>
+      <div class="r-item col-6">
+        <div class="r-label-item header-light">
+          Full Name
+        </div>
+        <input [(ngModel)]="fullname" maxlength="70">
+      </div>
+      <div class="r-item col-6">
+        <div class="r-label-item header-light">
+          Password
+        </div>
+        <input type="password" [(ngModel)]="password" (ngModelChange)="checkPassword($event)" maxlength="16">
+        <div class="red-item" *ngIf="boolPassword">
+          กรุณากรอกรหัสให้ตรงกัน
+        </div>
+      </div>
+      <div class="r-item col-6">
+        <div class="r-label-item header-light">
+          Re-Password
+        </div>
+        <input type="password" [(ngModel)]="repassword" (ngModelChange)="checkPassword($event)" maxlength="16">
+        <div class="red-item" *ngIf="boolPassword">
+          กรุณากรอกรหัสให้ตรงกัน </div>
+      </div>
+
+      <div class="r-item col-6">
+        <mat-form-field [style.width]="'100%'">
+          <mat-select placeholder="Select Subject and term" [style.width]="'100%'" [(ngModel)]="courseData">
+            <mat-option *ngFor="let course of openingCourse" [value]="course.cid">
+              {{ course.ccode }}: {{ course.cname }} ({{ course.semester }}/{{ course.year }})
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="r-submit">
+      <div class="r-button-submit disabled" *ngIf="!fullname || !password || !repassword || !studentcode ||  !courseData || boolPassword">
+        Register
+      </div>
+      <div class="r-button-submit" (click)="register()" *ngIf="fullname && password && repassword && studentcode &&  courseData && !boolPassword">
+        Register
+      </div>
+    </div>
+  </div>
+</div>

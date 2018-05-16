@@ -15,6 +15,9 @@ import {
 } from "ng2-file-upload";
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from "ng-pick-datetime";
 import { DatabasesService } from "../service/databases/databases.service";
+import { CoursesService } from "../service/courses/courses.service";
+import { AssignmentsService } from "../service/assignments/assignments.service";
+CoursesService;
 import { Ng2AutoCompleteModule } from "ng2-auto-complete";
 import { ManageAssignmentComponent } from "./admin-content/manage-assignment/manage-assignment.component";
 import { CreateAssignmentComponent } from "./admin-content/manage-assignment/create-assignment/create-assignment.component";
@@ -22,6 +25,19 @@ import { ManageSubAssignmentComponent } from "./admin-content/manage-assignment/
 import { RoutingModule } from "./admin.routing";
 import { GenarateTestcaseComponent } from "./admin-content/manage-assignment/genarate-testcase/genarate-testcase.component";
 import { ModalComponent } from "../modal/modal.component";
+import { HighlightModule } from "ngx-highlightjs";
+import { OnlyNumberDirective } from "../directive/only-number.directive";
+import { AssignmentFilterPipe } from "./pipe/assignment-filter.pipe";
+import { ManageCourseComponent } from "./admin-content/manage-course/manage-course.component";
+import { CreateCourseComponent } from "./admin-content/manage-course/create-course/create-course.component";
+import { CourseListComponent } from "./admin-content/manage-course/course-list/course-list.component";
+import { CourseItemListComponent } from "./admin-content/manage-course/course-list/course-item-list/course-item-list.component";
+import { ScoreComponent } from "./admin-content/score/score.component";
+import { DirectiveModule } from "../directive/directive.module";
+import { ScoresService } from "../service/scores/scores.service";
+import { SubmitDetailComponent } from './admin-content/score/submit-detail/submit-detail.component';
+import { ViewSubmitStudentComponent } from './admin-content/score/view-submit-student/view-submit-student.component';
+import { QuestionModalComponent } from './admin-content/score/view-submit-student/question-modal/question-modal.component';
 
 @NgModule({
   imports: [
@@ -33,9 +49,16 @@ import { ModalComponent } from "../modal/modal.component";
     OwlNativeDateTimeModule,
     // FileSelectDirective
     FileUploadModule,
-    RoutingModule
+    HighlightModule,
+    RoutingModule,
+    DirectiveModule
   ],
-  providers: [DatabasesService],
+  providers: [
+    DatabasesService,
+    AssignmentsService,
+    CoursesService,
+    ScoresService
+  ],
 
   declarations: [
     AdminComponent,
@@ -48,7 +71,16 @@ import { ModalComponent } from "../modal/modal.component";
     CreateAssignmentComponent,
     ManageSubAssignmentComponent,
     GenarateTestcaseComponent,
-    ModalComponent
+    ModalComponent,
+    AssignmentFilterPipe,
+    ManageCourseComponent,
+    CreateCourseComponent,
+    CourseListComponent,
+    CourseItemListComponent,
+    ScoreComponent,
+    SubmitDetailComponent,
+    ViewSubmitStudentComponent,
+    QuestionModalComponent
   ],
   exports: [
     AdminComponent,

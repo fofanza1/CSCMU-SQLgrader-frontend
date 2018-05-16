@@ -1,0 +1,87 @@
+<div class="course-list-item row" *ngIf="!editMode">
+  <div class="cl-item col-2">
+    <mat-icon *ngIf="selectCoruse" [style.color]="'green'">
+      check_circle
+    </mat-icon>
+    <mat-icon *ngIf="!selectCoruse" (click)="selectCourseItem()">
+      check_circle
+    </mat-icon>
+    {{data.ccode}}
+  </div>
+  <div class="cl-item col-3" matTooltip="{{data.cname}}" [matTooltipPosition]="'above'">
+    {{data.cname}}
+  </div>
+  <div class="cl-item col-1">
+    {{data.semester}}
+  </div>
+  <div class="cl-item col-2">
+    {{data.year}}
+  </div>
+  <div class="opening cl-item col-2" *ngIf="data.cstatus === 'opening'">
+    {{data.cstatus}}
+  </div>
+  <div class="closed cl-item col-2" *ngIf="data.cstatus === 'closed'">
+    {{data.cstatus}}
+  </div>
+  <div class="cl-item end col-2">
+    <div class="edit cl-button" (click)="editCourse()">
+      Edit
+    </div>
+  </div>
+
+</div>
+
+
+<div class="course-list-item row" *ngIf="editMode">
+
+  <div class="cl-item col-2">
+    <input [(ngModel)]="courseCode" appOnlyNumber [maxLength]="6">
+  </div>
+  <div class="cl-item col-3" matTooltip="{{data.cname}}" [matTooltipPosition]="'above'">
+    <input [(ngModel)]="courseName" [maxLength]="50">
+  </div>
+  <div class="cl-item col-1">
+    <mat-form-field [style.width]="'100%'">
+      <mat-select placeholder="Select Term" [(ngModel)]="courseSemester">
+        <mat-option *ngFor="let term of terms" [value]="term.value">
+          {{ term.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="cl-item col-2">
+    <input [(ngModel)]="courseYear" appOnlyNumber [maxLength]="4">
+  </div>
+  <div class="opening cl-item col-2">
+    <mat-form-field>
+      <mat-select placeholder="Coruse Status" [(ngModel)]="statusCoruse">
+        <mat-option *ngFor="let status of statusEntity" [value]="status.value">
+          {{ status.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="cl-item end col-2">
+    <div class="edit disabled cl-button" *ngIf="+(courseCode?.length) !== 6 || +(courseYear?.length) !== 4 || !courseName">
+      Update
+    </div>
+    <div class="edit  cl-button" (click)="editCourseToBackend()" *ngIf="+(courseCode?.length) === 6 && +(courseYear?.length) === 4 && courseName">
+      Update
+    </div>
+    <div class="closed cl-button" (click)="cancelEditCourse()">
+      Cancel
+    </div>
+  </div>
+</div>
+
+<grader-modal *ngIf="loading"></grader-modal>
+
+<div class="pop-up-error" *ngIf="errorPopup">
+  <div class="err-card">
+    ไม่สามารถแก้ไขข้อมูลคอร์สรายวิชาได้
+    <br> เนื่องจากคอร์สรายวิชามีอยู่แล้วในระบบ
+    <div class="close-button" (click)="errorPopup = false">
+      ปิด
+    </div>
+  </div>
+</div>

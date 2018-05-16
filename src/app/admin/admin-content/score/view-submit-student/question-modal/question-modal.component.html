@@ -1,0 +1,47 @@
+<div class="question-submit-container">
+  <div class="qs-card">
+    <div class="qs-content-header header-light">
+      Submission Detail
+    </div>
+    <mat-divider></mat-divider>
+    <div class="qs-table-header row">
+      <div class="qs-table-header-item  col-3">
+        No of Question
+      </div>
+      <div class="qs-table-header-item  col-3">
+        Time (s)
+      </div>
+      <div class="qs-table-header-item  col-3">
+        Score
+      </div>
+      <div class="qs-table-header-item  col-3">
+        Full Score
+      </div>
+    </div>
+    <div class="qs-table-item-row">
+      <div class="qs-table-item-container row" *ngFor="let data of submissionDetail;let i = index">
+        <div class="qs-table-item header-light col-3">
+          {{i+1}}
+        </div>
+        <div class="qs-table-item header-light col-3">
+          {{data?.submittime / 1000}}
+        </div>
+        <div class="qs-table-item header-light col-3">
+          {{data?.submitscore}}
+        </div>
+        <div class="qs-table-item header-light col-3">
+          100
+        </div>
+      </div>
+    </div>
+    <div class="qs-content-totalscore header-light" [ngClass]="{'totalscore-zero': totalscore === 0}">
+      Total Score:100
+    </div>
+    <mat-divider></mat-divider>
+    <div class="close-button">
+      <div class="close-button-item" (click)="clickClose()">
+        CLOSE
+      </div>
+    </div>
+  </div>
+</div>

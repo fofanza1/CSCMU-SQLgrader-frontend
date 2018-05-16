@@ -8,6 +8,11 @@ import { ManageAssignmentComponent } from "./admin-content/manage-assignment/man
 import { CreateAssignmentComponent } from "./admin-content/manage-assignment/create-assignment/create-assignment.component";
 import { ManageSubAssignmentComponent } from "./admin-content/manage-assignment/manage-sub-assignment/manage-sub-assignment.component";
 import { GenarateTestcaseComponent } from "./admin-content/manage-assignment/genarate-testcase/genarate-testcase.component";
+import { ManageCourseComponent } from "./admin-content/manage-course/manage-course.component";
+import { CreateCourseComponent } from "./admin-content/manage-course/create-course/create-course.component";
+import { CourseListComponent } from "./admin-content/manage-course/course-list/course-list.component";
+import { ScoreComponent } from "./admin-content/score/score.component";
+
 const routes: Routes = [
   {
     path: "admin",
@@ -45,7 +50,7 @@ const routes: Routes = [
             component: ManageSubAssignmentComponent
           },
           {
-            path: "genaratetestcase",
+            path: "assignmentlist/:id",
             component: GenarateTestcaseComponent
           },
           {
@@ -54,6 +59,29 @@ const routes: Routes = [
             pathMatch: "full"
           }
         ]
+      },
+      {
+        path: "managecourse",
+        component: ManageCourseComponent,
+        children: [
+          {
+            path: "createcourse",
+            component: CreateCourseComponent
+          },
+          {
+            path: "courselist",
+            component: CourseListComponent
+          },
+          {
+            path: "",
+            redirectTo: "courselist",
+            pathMatch: "full"
+          }
+        ]
+      },
+      {
+        path: "score",
+        component: ScoreComponent
       }
     ]
   }

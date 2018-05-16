@@ -1,0 +1,69 @@
+.view-scores-container {
+    margin: 20px; // overflow-x: scroll;
+    .form-select-assignment {
+        width: 300px;
+    }
+    .vs-header {
+        width: 100%;
+        margin-top: 20px; // padding: 5px;
+        .vs-header-item {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: #33485f;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-top: 1px solid #cccccc;
+            border-bottom: 1px solid #cccccc;
+        }
+        .assignment-number {
+            display: flex;
+            clear: both; // text-align: center;
+            // white-space: nowrap;
+            .assignment-number-item {
+                font-weight: 600;
+                padding: 10 px;
+            }
+        }
+    }
+    .vs-item-container {
+        width: 100%; // margin: 5px;
+        .vs-item {
+            display: flex;
+            justify-content: center;
+            border-right: 2px solid white;
+            padding: 10px; // background-color: #3f51b5;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-bottom: 1px solid #cccccc;
+            .vs-button {
+                background-color: #33485f;
+                color: white;
+                cursor: pointer;
+                padding: 7px;
+                border-radius: 2px;
+            }
+        }
+        .assignment-number {
+            display: flex;
+            clear: both; // text-align: center;
+            // white-space: nowrap;
+            .assignment-number-item {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.go-back-to-summary {
+    margin: 10px;
+    padding: 15px;
+    background-color: #F44336;
+    color: white;
+    width: 20%;
+    font-weight: 600;
+    font-size: 1.4rem;
+    cursor: pointer;
+    text-align: center;
+}
