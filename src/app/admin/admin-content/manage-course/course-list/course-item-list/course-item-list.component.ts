@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { CoursesService } from "../../../../../service/courses/courses.service";
-import { Router } from "@angular/router";
+import {Component, OnInit, Input} from "@angular/core";
+import {CoursesService} from "../../../../../service/courses/courses.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: "grader-course-item-list",
@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./course-item-list.component.scss"]
 })
 export class CourseItemListComponent implements OnInit {
+  section = "";
   errorPopup = false;
   errMsg: any;
   suc: boolean;
@@ -21,19 +22,20 @@ export class CourseItemListComponent implements OnInit {
   courseYear;
   statusCoruse;
   checkError = false;
+  ccode;
   statusEntity = [
-    { value: "opening", viewValue: "opening" },
-    { value: "closed", viewValue: "closed" }
+    {value: "opening", viewValue: "opening"},
+    {value: "closed", viewValue: "closed"}
   ];
 
   terms = [
-    { value: "1", viewValue: "1" },
-    { value: "2", viewValue: "2" },
-    { value: "3", viewValue: "3" }
+    {value: "1", viewValue: "1"}, {value: "2", viewValue: "2"},
+    {value: "3", viewValue: "3"}
   ];
   constructor(private courseService: CoursesService, private router: Router) {}
 
   ngOnInit() {
+    console.log(this.data);
     if (localStorage.getItem("adminCourseId") == this.data.cid) {
       this.selectCoruse = true;
     }
@@ -51,39 +53,30 @@ export class CourseItemListComponent implements OnInit {
     window.location.reload();
   }
 
-  editCourse() {
-    this.editMode = true;
-  }
+  editCourse() { this.editMode = true; }
 
-  cancelEditCourse() {
-    this.editMode = false;
-  }
+  cancelEditCourse() { this.editMode = false; }
 
   editCourseToBackend() {
     this.loading = true;
     this.courseService
-      .updateCourse(
-        this.data.cid,
-        this.courseCode,
-        this.courseName,
-        this.courseSemester,
-        this.courseYear,
-        this.statusCoruse
-      )
-      .subscribe(
-        data => {
-          this.loading = false;
-          this.editMode = false;
-          this.suc = true;
-          window.location.reload();
-        },
-        err => {
-          this.loading = false;
-          this.editMode = false;
-          this.errMsg = err;
-          this.errorPopup = true;
-        }
-      );
+        .updateCourse(
+            this.data.cid, this.courseCode, this.courseName,
+            this.courseSemester, this.courseYear, this.statusCoruse,
+            this.section)
+        .subscribe(
+            data => {
+              this.loading = false;
+              this.editMode = false;
+              this.suc = true;
+              window.location.reload();
+            },
+            err => {
+              this.loading = false;
+              this.editMode = false;
+              this.errMsg = err;
+              this.errorPopup = true;
+            });
 
     // this.courseService
   }

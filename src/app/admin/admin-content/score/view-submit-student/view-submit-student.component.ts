@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from "@angular/core";
 import { TasksService } from "../../../../service/tasks/tasks.service";
+import * as FileSaver from "file-saver";
 
 @Component({
   selector: "grader-view-submit-student",
@@ -7,6 +8,7 @@ import { TasksService } from "../../../../service/tasks/tasks.service";
   styleUrls: ["./view-submit-student.component.scss"]
 })
 export class ViewSubmitStudentComponent implements OnInit, OnChanges {
+  totalscore: any;
   detailSubmission: Object;
   constructor(private taskService: TasksService) {}
   @Input() dataDetail;
@@ -28,10 +30,19 @@ export class ViewSubmitStudentComponent implements OnInit, OnChanges {
     }
   }
 
-  viewDetail(scoreid) {
+  viewDetail(data) {
+    console.log(data);
     this.showDetail = true;
-    // this.taskServic
-    this.getDetailSubmission(scoreid);
+    this.totalscore = data.score;
+    console.log(this.totalscore);
+    this.getDetailSubmission(data.scoreid);
+  }
+
+  viewAnswer(data) {
+    console.log(data.scoreid);
+    this.taskService.getSubmissionFile(data.scoreid).subscribe(res => {
+      FileSaver.saveAs(res, "submitFile" + data.scoreid + ".sql");
+    });
   }
 
   getDetailSubmission(scoreid) {

@@ -24,24 +24,30 @@ export class CoursesService {
     return this.http.get(this.URL_SERVICE + this.path + "/getopeningcourse");
   }
 
-  createCourse(ccode, cname, semester, year, cstatus) {
+  getSection(cid) {
+    return this.http.get(this.URL_SERVICE + this.path + "/getsection/" + cid);
+  }
+
+  createCourse(ccode, cname, semester, year, cstatus, section) {
     return this.http.post(this.URL_SERVICE + this.path + "/addcourse", {
       ccode: ccode,
       cname: cname,
       semester: semester,
       year: year,
-      cstatus: cstatus
+      cstatus: cstatus,
+      section: section
     });
   }
 
-  updateCourse(cid, ccode, cname, semester, year, cstatus) {
+  updateCourse(cid, ccode, cname, semester, year, cstatus, section) {
     return this.http.post(this.URL_SERVICE + this.path + "/updatecourse", {
       cid: cid,
       ccode: ccode,
       cname: cname,
       semester: semester,
       year: year,
-      cstatus: cstatus
+      cstatus: cstatus,
+      section: section
     });
   }
 }

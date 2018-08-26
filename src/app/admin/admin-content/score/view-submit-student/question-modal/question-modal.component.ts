@@ -8,14 +8,21 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 export class QuestionModalComponent implements OnInit {
   submissionDetail: any;
   @Input() data;
+  @Input() totalscore;
+  score = 0;
   @Output("showDetail")
   change: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor() {}
 
   ngOnChanges(change) {
+    console.log(change);
     if (change.data.currentValue) {
       this.submissionDetail = change.data.currentValue;
       console.log(this.submissionDetail);
+    }
+    if (change.totalscore) {
+      this.score = change.totalscore.currentValue;
+      console.log(this.score);
     }
   }
 

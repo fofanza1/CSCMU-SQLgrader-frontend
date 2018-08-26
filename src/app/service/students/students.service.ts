@@ -22,12 +22,13 @@ export class StudentsService {
     });
   }
 
-  register(password, studentid, fullname, cid) {
+  register(password, studentid, fullname, cid, section) {
     return this.http.post(this.URL_SERVICE + this.path + "/registerstudent", {
       password: password,
       studentid: studentid,
       fullname: fullname,
-      cid: cid
+      cid: cid,
+      section: section
     });
   }
 }

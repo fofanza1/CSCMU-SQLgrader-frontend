@@ -38,6 +38,7 @@ import { ScoresService } from "../service/scores/scores.service";
 import { SubmitDetailComponent } from './admin-content/score/submit-detail/submit-detail.component';
 import { ViewSubmitStudentComponent } from './admin-content/score/view-submit-student/view-submit-student.component';
 import { QuestionModalComponent } from './admin-content/score/view-submit-student/question-modal/question-modal.component';
+import { MockComponent } from './mock/mock.component';
 
 @NgModule({
   imports: [
@@ -80,7 +81,8 @@ import { QuestionModalComponent } from './admin-content/score/view-submit-studen
     ScoreComponent,
     SubmitDetailComponent,
     ViewSubmitStudentComponent,
-    QuestionModalComponent
+    QuestionModalComponent,
+    MockComponent
   ],
   exports: [
     AdminComponent,

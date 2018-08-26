@@ -105,13 +105,31 @@
     </div> -->
     <mat-divider></mat-divider>
     <div class="form-manage-assignment-group ">
+      <div class="gen-testcase-header">
+        <mat-icon>
+          view_day
+        </mat-icon>
+        Genarate Test Case
+      </div>
+      <label class="label ">Question Number:1</label>
+      <br>
       <label class="label ">Question Description</label>
       <textarea class="form-control " rows="3 " max="200 " [(ngModel)]="dataUpdate.qdescription "></textarea>
     </div>
     <div class="form-manage-assignment-group ">
-      <label class="label ">Solution Problem</label>
-      <label class="warning label ">MySQL - insert, update ต้อง select ค่าออกมาด้วย | delete ต้องเพิ่ม returning เช่น DELETE FROM t RETURNING *;
-      </label>
+      <label class="label ">Complication: </label>
+      <mat-form-field>
+        <mat-select>
+          <mat-option value="option1">Simple</mat-option>
+          <mat-option value="option3">Intermediate</mat-option>
+          <mat-option value="option2">Advance</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form-manage-assignment-group ">
+      <label class="label ">Test Case</label>
+      <!-- <label class="warning label "> Insert, Update Operation ต้อง select ค่าออกมาด้วย
+      </label> -->
       <!-- <br>
       <mat-form-field class="col-3 create-db-form ">
         <mat-select placeholder="Select Database " [(ngModel)]="dbmsValue " required>
@@ -134,7 +152,7 @@
         Update Question
       </div>
     </div>
-    <div class="form-manage-assignment-group ">
+    <!-- <div class="form-manage-assignment-group ">
       <label class="label ">Answer</label>
       <mat-divider></mat-divider>
       <div class="table-responsive " *ngIf="dataUpdate.answer.length> 0">
@@ -151,7 +169,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 <div>

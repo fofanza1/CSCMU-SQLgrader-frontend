@@ -32,15 +32,15 @@
       {{data?.score}}
     </div>
     <div class="vsd-table-item header-light col-3">
-      <div class="button view" (click)="viewDetail(data.scoreid)">
+      <div class="button view" (click)="viewDetail(data)">
         View Detail
       </div>
     </div>
     <div class="vsd-table-item header-light col-3">
-      <div class="button">
+      <div class="button" (click)="viewAnswer(data)">
         View Answer
       </div>
     </div>
   </div>
 </div>
-<grader-question-modal [data]="detailSubmission" (showDetail)="ChangeShowDetail($event)" *ngIf="showDetail"></grader-question-modal>
+<grader-question-modal [data]="detailSubmission" [totalscore]="totalscore" (showDetail)="ChangeShowDetail($event)" *ngIf="showDetail"></grader-question-modal>

@@ -8,13 +8,13 @@
 
 <div class="create-assignment-container">
   <div class="create-assignment-header">
-    Create Assignment
+    Upload Assignment
   </div>
   <div class="create-assignment-content row">
     <div class="ca-form col-6">
       <div class="label-ca-form">
         <mat-icon>star</mat-icon>
-        Number of Assignment :
+        Assignment Number :
       </div>
       <input type="text" (ngModelChange)="checkAssignmentNumber($event)" [(ngModel)]="assignmentNumber" appOnlyNumber maxlength="3">
       <div class="error-number-assignment" *ngIf="errorMessageNumberAssignemnt">
@@ -31,7 +31,7 @@
     <div class="ca-form col-6">
       <div class="label-ca-form">
         <mat-icon>list </mat-icon>
-        No of Question :
+        Number of Questions :
       </div>
       <input type="text" [(ngModel)]="noofquestion" appOnlyNumber maxlength="2">
     </div>
@@ -43,6 +43,16 @@
       <select class="form-control" [(ngModel)]="selectDatabases">
         <option *ngFor="let db of allDatabasesObj" [ngValue]="db.dbid">{{db.dbid}}: {{db.dbname}}</option>
       </select>
+    </div>
+    <div class="ca-form col-12">
+      <div class="label-ca-form">
+        <mat-icon>assignment</mat-icon>
+        Instruction:
+      </div>
+      <div class="form-group">
+        <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
     </div>
     <div class="ca-form col-12">
       <div class="label-ca-form ">

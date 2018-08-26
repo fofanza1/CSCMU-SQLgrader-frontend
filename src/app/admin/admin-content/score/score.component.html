@@ -11,8 +11,35 @@
       </mat-select>
     </mat-form-field>
   </div>
+  <div class="select-assignment">
+    <div class="header-light">
+      Select Section
+    </div>
+    <mat-form-field class="form-select-assignment">
+      <mat-select [(ngModel)]="section" (ngModelChange)="changeSection($event)">
+        <mat-option *ngFor="let section of arraySection" [value]="section">
+          <div *ngIf="section === 0">
+            ทุก Section
+          </div>
+          <div *ngIf="section !== 0">
+            Section: {{section}}
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
   <mat-divider></mat-divider>
   <grader-submit-detail [dataDetail]="allScore" *ngIf="!showDetail"></grader-submit-detail>
+  <mat-divider></mat-divider>
+  <div class="csv-download">
+    <mat-divider></mat-divider>
+    <div class="header-light">
+      Score Data Download
+    </div>
+    <div class="csv-button-download" (click)="clickDownloadCSV()">
+      Click Download (.CSV)
+    </div>
+  </div>
   <mat-divider></mat-divider>
   <div *ngIf="!showDetail">
     <div class="vs-header header-light row">

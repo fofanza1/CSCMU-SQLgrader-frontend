@@ -39,22 +39,30 @@
         <div class="red-item" *ngIf="boolPassword">
           กรุณากรอกรหัสให้ตรงกัน </div>
       </div>
-
       <div class="r-item col-6">
         <mat-form-field [style.width]="'100%'">
-          <mat-select placeholder="Select Subject and term" [style.width]="'100%'" [(ngModel)]="courseData">
+          <mat-select placeholder="Select Subject and term" [style.width]="'100%'" [(ngModel)]="courseData" (ngModelChange)="courseChange($event)">
             <mat-option *ngFor="let course of openingCourse" [value]="course.cid">
               {{ course.ccode }}: {{ course.cname }} ({{ course.semester }}/{{ course.year }})
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
+      <div class="r-item col-6">
+        <mat-form-field [style.width]="'100%'">
+          <mat-select placeholder="Select Section" [style.width]="'100%'" [(ngModel)]="sectionData">
+            <mat-option *ngFor="let sid of section" [value]="sid">
+              {{sid}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
     <div class="r-submit">
-      <div class="r-button-submit disabled" *ngIf="!fullname || !password || !repassword || !studentcode ||  !courseData || boolPassword">
+      <div class="r-button-submit disabled" *ngIf="!fullname || !password || !repassword || !studentcode ||  !courseData || boolPassword || !sectionData">
         Register
       </div>
-      <div class="r-button-submit" (click)="register()" *ngIf="fullname && password && repassword && studentcode &&  courseData && !boolPassword">
+      <div class="r-button-submit" (click)="register()" *ngIf="fullname && password && repassword && studentcode &&  courseData && !boolPassword && sectionData">
         Register
       </div>
     </div>

@@ -14,8 +14,11 @@
   <div class="cl-item col-1">
     {{data.semester}}
   </div>
-  <div class="cl-item col-2">
+  <div class="cl-item col-1">
     {{data.year}}
+  </div>
+  <div class="cl-item col-1">
+    {{data.numberofsection}}
   </div>
   <div class="opening cl-item col-2" *ngIf="data.cstatus === 'opening'">
     {{data.cstatus}}
@@ -49,8 +52,11 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <div class="cl-item col-2">
+  <div class="cl-item col-1">
     <input [(ngModel)]="courseYear" appOnlyNumber [maxLength]="4">
+  </div>
+  <div class="cl-item col-1">
+    <input [(ngModel)]="ccode" appOnlyNumber [maxLength]="4">
   </div>
   <div class="opening cl-item col-2">
     <mat-form-field>

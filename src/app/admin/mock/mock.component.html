@@ -1,0 +1,47 @@
+<div class="mock-container">
+  <div class="mock-content-header  ">
+    View Students' Scores
+  </div>
+  <div class="mock-table-header row">
+    <div class="mock-table-header-item col-2">
+      Section
+    </div>
+    <div class="mock-table-header-item col-2">
+      Assignment No.
+    </div>
+    <div class="mock-table-header-item col-2">
+      Operation Type
+    </div>
+    <div class="mock-table-header-item col-2">
+      Complication
+    </div>
+    <div class="mock-table-header-item col-2">
+      Score Description
+    </div>
+    <div class="mock-table-header-item col-2">
+      Count (Percent)
+    </div>
+  </div>
+  <div class="mock-table-item-row">
+    <div class="mock-table-item-container row" *ngFor="let dataRow of data;">
+      <div class="mock-table-item  col-2">
+        {{dataRow["Section"]}}
+      </div>
+      <div class="mock-table-item  col-2">
+        {{dataRow["Assignment No."]}}
+      </div>
+      <div class="mock-table-item  col-2">
+        {{dataRow["Operation Type"]}}
+      </div>
+      <div class="mock-table-item  col-2">
+        {{dataRow["Complication"]}}
+      </div>
+      <div class="mock-table-item  col-2">
+        {{dataRow["Score Description"]}}
+      </div>
+      <div class="mock-table-item  col-2">
+        {{dataRow["Count(Percent)"]}}
+      </div>
+    </div>
+  </div>
+</div>

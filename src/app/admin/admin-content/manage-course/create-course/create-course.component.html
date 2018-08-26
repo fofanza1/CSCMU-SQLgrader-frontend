@@ -16,7 +16,7 @@
         Course Code:
       </div>
       <div class="cc-warning-label">
-        *ต้องกรอกครบ 6 ตัว
+        *ต้องกรอกตัวเลขครบ 6 ตัว
       </div>
       <input type="text" [style.width]="'100%'" maxlength="6" appOnlyNumber [(ngModel)]="ccode">
     </div>
@@ -25,7 +25,7 @@
         Academic Year:
       </div>
       <div class="cc-warning-label">
-        *ต้องกรอกครบ 4 ตัว
+        ต้องกรอกตัวเลขครบ 4 ตัว
       </div>
       <input type="text" [style.width]="'100%'" maxlength="4" [(ngModel)]="year" appOnlyNumber>
     </div>
@@ -39,7 +39,8 @@
     </div>
     <div class="cc-input">
       <mat-form-field [style.width]="'100%'">
-        <mat-select placeholder="Select Term" [(ngModel)]="termData">
+        <!-- radio -->
+        <mat-select placeholder="Select Semester" [(ngModel)]="termData">
           <mat-option *ngFor="let term of terms" [value]="term.value">
             {{ term.viewValue }}
           </mat-option>
@@ -47,11 +48,19 @@
       </mat-form-field>
     </div>
   </div>
+  <div class="cc-input-row">
+    <div class="cc-input">
+      <div class="cc-input-label">
+        Total Section:
+      </div>
+      <input type="text" [style.width]="'100%'" maxlength="2" appOnlyNumber [(ngModel)]="csection">
+    </div>
+  </div>
   <div class="cc-submit">
-    <div class="cc-button disabled" *ngIf="+(ccode?.length) !== 6 || +(year?.length) !== 4 || !cname || !termData">
+    <div class="cc-button disabled" *ngIf="+(ccode?.length) !== 6 || +(year?.length) !== 4 || !cname || !termData || !csection">
       Create Course
     </div>
-    <div class="cc-button" (click)="createCourse()" *ngIf="+(ccode?.length)=== 6 && +(year?.length) === 4 && cname && termData">
+    <div class="cc-button" (click)="createCourse()" *ngIf="+(ccode?.length)=== 6 && +(year?.length) === 4 && cname && termData && csection">
       Create Course
     </div>
   </div>

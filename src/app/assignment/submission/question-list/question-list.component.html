@@ -11,8 +11,11 @@
       <div class="qs-table-header-item  col-3">
         Time
       </div>
-      <div class="qs-table-header-item  col-6">
+      <div class="qs-table-header-item  col-3">
         Score
+      </div>
+      <div class="qs-table-header-item  col-3">
+        Score Description
       </div>
     </div>
     <div class="qs-table-item-row">
@@ -24,7 +27,10 @@
           <!-- {{data.scoreid}} -->
           {{data.submittime / 1000}} s
         </div>
-        <div class="qs-table-item header-light col-6">
+        <div class="qs-table-item header-light col-3">
+          {{data.submitscore}}
+        </div>
+        <div class="qs-table-item header-light col-3">
           {{data.submitscore}}
         </div>
       </div>

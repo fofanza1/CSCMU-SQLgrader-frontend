@@ -10,16 +10,18 @@ export class ScoresService {
     this.URL_SERVICE = environment.URL_SERVICE;
     this.path = "/scores";
   }
-  headerDetail = {
-    Authorization: localStorage.getItem("studentid")
-  };
+  headerDetail = { Authorization: localStorage.getItem("studentid") };
 
-  httpOptions = {
-    headers: new HttpHeaders(this.headerDetail)
-  };
+  httpOptions = { headers: new HttpHeaders(this.headerDetail) };
 
   getScorebyAssignmentId(aid) {
     return this.http.get(this.URL_SERVICE + this.path + "/getallscore/" + aid);
+  }
+
+  getScorebyAssignmentIdAndSection(aid, section) {
+    return this.http.get(
+      this.URL_SERVICE + this.path + "/getallscore/" + aid + "/" + section
+    );
   }
 
   getScoreDetailbyAssignmentId(aid) {

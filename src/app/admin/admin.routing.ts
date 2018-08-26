@@ -12,6 +12,7 @@ import { ManageCourseComponent } from "./admin-content/manage-course/manage-cour
 import { CreateCourseComponent } from "./admin-content/manage-course/create-course/create-course.component";
 import { CourseListComponent } from "./admin-content/manage-course/course-list/course-list.component";
 import { ScoreComponent } from "./admin-content/score/score.component";
+import { MockComponent } from "./mock/mock.component";
 
 const routes: Routes = [
   {
@@ -82,6 +83,10 @@ const routes: Routes = [
       {
         path: "score",
         component: ScoreComponent
+      },
+      {
+        path: "mock",
+        component: MockComponent
       }
     ]
   }

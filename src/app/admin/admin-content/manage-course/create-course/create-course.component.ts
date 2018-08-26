@@ -17,6 +17,7 @@ export class CreateCourseComponent implements OnInit {
   cname = "";
   termData;
   year;
+  csection;
   terms = [
     { value: "1", viewValue: "1" },
     { value: "2", viewValue: "2" },
@@ -29,7 +30,7 @@ export class CreateCourseComponent implements OnInit {
     // console.log(this.ccode, this.cname, this.termData, this.year);
     this.loading = true;
     this.courseService
-      .createCourse(this.ccode, this.cname, this.termData, this.year, "opening")
+      .createCourse(this.ccode, this.cname, this.termData, this.year, "opening", this.csection)
       .subscribe(
         data => {
           this.loading = false;
